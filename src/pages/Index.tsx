@@ -484,6 +484,18 @@ const Index = () => {
             ))}
           </div>
 
+          <p className="mt-8 text-center text-sm md:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            For Title Underwriter naming rights, custom partnership agreements, or ACH payment
+            instructions, please contact{" "}
+            <a
+              href={HOLLY_EMAIL_MAILTO}
+              className="font-semibold text-[hsl(var(--navy))] underline decoration-[hsl(var(--gold))] decoration-2 underline-offset-4 hover:text-[hsl(var(--gold))]"
+            >
+              Holly Odogwu
+            </a>{" "}
+            directly.
+          </p>
+
           {/* Title underwriter contact box */}
           <div className="mt-12 rounded-3xl bg-[hsl(var(--navy))] text-white p-8 md:p-10 shadow-elegant">
             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
@@ -495,7 +507,7 @@ const Index = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-3 shrink-0">
-                <a href="mailto:holly@autismmeetsfaith.org" className="inline-flex items-center gap-2 text-gold hover:text-[hsl(var(--gold-soft))] font-medium">
+                <a href={HOLLY_EMAIL_MAILTO} className="inline-flex items-center gap-2 text-gold hover:text-[hsl(var(--gold-soft))] font-medium">
                   <Mail size={18} /> holly@autismmeetsfaith.org
                 </a>
                 <a href="tel:8322241147" className="inline-flex items-center gap-2 text-gold hover:text-[hsl(var(--gold-soft))] font-medium">
