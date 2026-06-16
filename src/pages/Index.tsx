@@ -145,7 +145,7 @@ const tiers: Tier[] = [
       "Custom partnership benefits & executive recognition",
       "Premier stage acknowledgment throughout the summit",
     ],
-    cta: { label: "Schedule a Partnership Conversation", href: "#contact" },
+    cta: { label: "Schedule a Partnership Conversation", href: TITLE_UNDERWRITER_MAILTO },
     featured: true,
   },
   {
@@ -251,7 +251,7 @@ const Index = () => {
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
-              <a href="#sponsor-levels">Become a Sponsor <ArrowRight /></a>
+              <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">Become a Sponsor <ArrowRight /></a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
               <a href={PROSPECTUS_URL} target="_blank" rel="noopener">
@@ -821,10 +821,17 @@ const TierCard = ({ tier, className = "" }: { tier: Tier; className?: string }) 
         </ul>
 
         <div className="mt-8">
-          <Button asChild variant={featured ? "hero" : "navy"} size="default" className="w-full">
-            {/* Zeffy link placeholder — swap href when ready */}
-            <a href={tier.cta.href}>{tier.cta.label} <ArrowRight /></a>
-          </Button>
+          {tier.cta.href.startsWith("mailto:") ? (
+            <Button asChild variant={featured ? "hero" : "navy"} size="default" className="w-full">
+              <a href={tier.cta.href}>{tier.cta.label} <ArrowRight /></a>
+            </Button>
+          ) : (
+            <Button asChild variant={featured ? "hero" : "navy"} size="default" className="w-full">
+              <a href={tier.cta.href} target="_blank" rel="noopener noreferrer">
+                {tier.cta.label} <ArrowRight />
+              </a>
+            </Button>
+          )}
         </div>
       </div>
     </div>
