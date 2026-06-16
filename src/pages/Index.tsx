@@ -35,13 +35,24 @@ import { BridgeDivider } from "@/components/BridgeDivider";
 import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
 
-// === Placeholder links — swap when ready ===
-const PROSPECTUS_URL = "#prospectus"; // TODO: replace with PDF URL
+// === Live links ===
+const PROSPECTUS_URL =
+  "https://drive.google.com/file/d/1g87HTBpGw_cU0qJ_Yq6vhyRj2DLbHYOm/view?usp=sharing";
+const ZEFFY_SPONSOR_URL =
+  "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
+const TITLE_UNDERWRITER_MAILTO =
+  "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Title%20Underwriter%20Inquiry";
+const CONTACT_MAILTO =
+  "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Inquiry";
+const HOLLY_EMAIL_MAILTO = "mailto:holly@autismmeetsfaith.org";
+const ZEFFY_QR_SRC = `https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=16&data=${encodeURIComponent(
+  ZEFFY_SPONSOR_URL
+)}`;
 const ZEFFY_LINKS = {
-  legacy: "#zeffy-legacy",      // $5,000 — Zeffy link placeholder
-  founding: "#zeffy-founding",  // $2,500 — Zeffy link placeholder
-  major: "#zeffy-major",        // $1,500 — Zeffy link placeholder
-  community: "#zeffy-community" // $500   — Zeffy link placeholder
+  legacy: ZEFFY_SPONSOR_URL,
+  founding: ZEFFY_SPONSOR_URL,
+  major: ZEFFY_SPONSOR_URL,
+  community: ZEFFY_SPONSOR_URL,
 };
 const REGISTER_URL = "#register"; // TODO: Zeffy registration link
 
@@ -134,7 +145,7 @@ const tiers: Tier[] = [
       "Custom partnership benefits & executive recognition",
       "Premier stage acknowledgment throughout the summit",
     ],
-    cta: { label: "Schedule a Partnership Conversation", href: "#contact" },
+    cta: { label: "Schedule a Partnership Conversation", href: TITLE_UNDERWRITER_MAILTO },
     featured: true,
   },
   {
@@ -240,10 +251,10 @@ const Index = () => {
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="lg">
-              <a href="#sponsor-levels">Become a Sponsor <ArrowRight /></a>
+              <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">Become a Sponsor <ArrowRight /></a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
-              <a href={PROSPECTUS_URL} target="_blank" rel="noopener">
+              <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
                 <Download /> Download Prospectus
               </a>
             </Button>
@@ -450,6 +461,48 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          {/* Zeffy QR Code */}
+          <div className="mt-16 grid lg:grid-cols-5 gap-8 items-center rounded-3xl bg-white/5 backdrop-blur-sm border border-white/15 p-8 md:p-12">
+            <div className="lg:col-span-2 flex justify-center">
+              <a
+                href={ZEFFY_SPONSOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl bg-white p-5 md:p-6 shadow-elegant hover:scale-[1.02] transition-transform"
+                aria-label="Open Bridge 2026 Zeffy sponsorship form"
+              >
+                <img
+                  src={ZEFFY_QR_SRC}
+                  alt="QR code linking to the Bridge 2026 Zeffy sponsorship payment form"
+                  width={320}
+                  height={320}
+                  className="w-56 h-56 md:w-72 md:h-72 block"
+                />
+              </a>
+            </div>
+            <div className="lg:col-span-3 text-center lg:text-left">
+              <p className="eyebrow !text-gold mb-3">Sponsor in Seconds</p>
+              <h3 className="font-display text-3xl md:text-4xl font-semibold text-white text-balance">
+                Scan to Sponsor <span className="text-gold">Bridge 2026</span>
+              </h3>
+              <p className="mt-4 text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Online sponsorship payments are processed securely through Zeffy.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Button asChild variant="hero" size="lg">
+                  <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">
+                    Sponsor Online <ArrowRight />
+                  </a>
+                </Button>
+                <Button asChild variant="outlineLight" size="lg">
+                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
+                    <Download /> Download Prospectus
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -473,6 +526,18 @@ const Index = () => {
             ))}
           </div>
 
+          <p className="mt-8 text-center text-sm md:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            For Title Underwriter naming rights, custom partnership agreements, or ACH payment
+            instructions, please contact{" "}
+            <a
+              href={HOLLY_EMAIL_MAILTO}
+              className="font-semibold text-[hsl(var(--navy))] underline decoration-[hsl(var(--gold))] decoration-2 underline-offset-4 hover:text-[hsl(var(--gold))]"
+            >
+              Holly Odogwu
+            </a>{" "}
+            directly.
+          </p>
+
           {/* Title underwriter contact box */}
           <div className="mt-12 rounded-3xl bg-[hsl(var(--navy))] text-white p-8 md:p-10 shadow-elegant">
             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
@@ -484,7 +549,7 @@ const Index = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-3 shrink-0">
-                <a href="mailto:holly@autismmeetsfaith.org" className="inline-flex items-center gap-2 text-gold hover:text-[hsl(var(--gold-soft))] font-medium">
+                <a href={HOLLY_EMAIL_MAILTO} className="inline-flex items-center gap-2 text-gold hover:text-[hsl(var(--gold-soft))] font-medium">
                   <Mail size={18} /> holly@autismmeetsfaith.org
                 </a>
                 <a href="tel:8322241147" className="inline-flex items-center gap-2 text-gold hover:text-[hsl(var(--gold-soft))] font-medium">
@@ -522,7 +587,7 @@ const Index = () => {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild variant="navy" size="lg">
-                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener">
+                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
                     <Download /> Download Prospectus
                   </a>
                 </Button>
@@ -677,25 +742,25 @@ const Index = () => {
               </div>
             </div>
 
-            <form
-              className="lg:col-span-3 rounded-3xl bg-card border border-border p-8 md:p-10 shadow-card space-y-5"
-              action="mailto:holly@autismmeetsfaith.org"
-              method="post"
-              encType="text/plain"
-            >
+            <div className="lg:col-span-3 rounded-3xl bg-card border border-border p-8 md:p-10 shadow-card space-y-5">
               <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Name"><Input name="name" required placeholder="Your name" /></Field>
+                <Field label="Name"><Input name="name" placeholder="Your name" /></Field>
                 <Field label="Organization"><Input name="organization" placeholder="Company / nonprofit" /></Field>
-                <Field label="Email"><Input name="email" type="email" required placeholder="you@example.com" /></Field>
+                <Field label="Email"><Input name="email" type="email" placeholder="you@example.com" /></Field>
                 <Field label="Phone"><Input name="phone" type="tel" placeholder="(555) 555-5555" /></Field>
               </div>
               <Field label="Message">
-                <Textarea name="message" required rows={5} placeholder="Tell us about your interest in BRIDGE 2026..." />
+                <Textarea name="message" rows={5} placeholder="Tell us about your interest in BRIDGE 2026..." />
               </Field>
-              <Button type="submit" variant="navy" size="lg" className="w-full md:w-auto">
-                Send Message <ArrowRight />
+              <p className="text-xs text-muted-foreground">
+                Click below to open your email app with your message — Holly responds to every inquiry personally.
+              </p>
+              <Button asChild variant="navy" size="lg" className="w-full md:w-auto">
+                <a href={CONTACT_MAILTO}>
+                  <Mail /> Email Holly About Bridge 2026
+                </a>
               </Button>
-            </form>
+            </div>
           </div>
         </div>
       </section>
@@ -734,16 +799,18 @@ const Index = () => {
               <p className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Take Action</p>
               <div className="flex flex-col gap-3">
                 <Button asChild variant="hero">
-                  <a href="#sponsor-levels">Become a Sponsor</a>
+                  <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">Sponsor Bridge 2026</a>
                 </Button>
                 <Button asChild variant="outlineLight">
-                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener">
+                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
                     <Download /> Download Prospectus
                   </a>
                 </Button>
               </div>
               <div className="mt-6 text-sm text-white/70 space-y-1">
-                <p>holly@autismmeetsfaith.org</p>
+                <p>
+                  <a href={HOLLY_EMAIL_MAILTO} className="hover:text-gold">holly@autismmeetsfaith.org</a>
+                </p>
                 <p>(832) 224-1147</p>
               </div>
             </div>
@@ -810,10 +877,17 @@ const TierCard = ({ tier, className = "" }: { tier: Tier; className?: string }) 
         </ul>
 
         <div className="mt-8">
-          <Button asChild variant={featured ? "hero" : "navy"} size="default" className="w-full">
-            {/* Zeffy link placeholder — swap href when ready */}
-            <a href={tier.cta.href}>{tier.cta.label} <ArrowRight /></a>
-          </Button>
+          {tier.cta.href.startsWith("mailto:") ? (
+            <Button asChild variant={featured ? "hero" : "navy"} size="default" className="w-full">
+              <a href={tier.cta.href}>{tier.cta.label} <ArrowRight /></a>
+            </Button>
+          ) : (
+            <Button asChild variant={featured ? "hero" : "navy"} size="default" className="w-full">
+              <a href={tier.cta.href} target="_blank" rel="noopener noreferrer">
+                {tier.cta.label} <ArrowRight />
+              </a>
+            </Button>
+          )}
         </div>
       </div>
     </div>
