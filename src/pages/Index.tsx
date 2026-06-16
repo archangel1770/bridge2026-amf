@@ -35,13 +35,24 @@ import { BridgeDivider } from "@/components/BridgeDivider";
 import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
 
-// === Placeholder links — swap when ready ===
-const PROSPECTUS_URL = "#prospectus"; // TODO: replace with PDF URL
+// === Live links ===
+const PROSPECTUS_URL =
+  "https://drive.google.com/file/d/1g87HTBpGw_cU0qJ_Yq6vhyRj2DLbHYOm/view?usp=sharing";
+const ZEFFY_SPONSOR_URL =
+  "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
+const TITLE_UNDERWRITER_MAILTO =
+  "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Title%20Underwriter%20Inquiry";
+const CONTACT_MAILTO =
+  "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Inquiry";
+const HOLLY_EMAIL_MAILTO = "mailto:holly@autismmeetsfaith.org";
+const ZEFFY_QR_SRC = `https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=16&data=${encodeURIComponent(
+  ZEFFY_SPONSOR_URL
+)}`;
 const ZEFFY_LINKS = {
-  legacy: "#zeffy-legacy",      // $5,000 — Zeffy link placeholder
-  founding: "#zeffy-founding",  // $2,500 — Zeffy link placeholder
-  major: "#zeffy-major",        // $1,500 — Zeffy link placeholder
-  community: "#zeffy-community" // $500   — Zeffy link placeholder
+  legacy: ZEFFY_SPONSOR_URL,
+  founding: ZEFFY_SPONSOR_URL,
+  major: ZEFFY_SPONSOR_URL,
+  community: ZEFFY_SPONSOR_URL,
 };
 const REGISTER_URL = "#register"; // TODO: Zeffy registration link
 
