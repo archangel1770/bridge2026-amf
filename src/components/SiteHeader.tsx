@@ -53,7 +53,13 @@ export const SiteHeader = () => {
 
         <div className="hidden lg:flex items-center gap-3">
           <Button asChild variant="hero" size="sm">
-            <a href="#sponsor-levels">Become a Sponsor</a>
+            <a
+              href="https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Become a Sponsor
+            </a>
           </Button>
         </div>
 
@@ -80,7 +86,12 @@ export const SiteHeader = () => {
               </a>
             ))}
             <Button asChild variant="hero" className="mt-4">
-              <a href="#sponsor-levels" onClick={() => setOpen(false)}>
+              <a
+                href="https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+              >
                 Become a Sponsor
               </a>
             </Button>

@@ -254,7 +254,7 @@ const Index = () => {
               <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">Become a Sponsor <ArrowRight /></a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
-              <a href={PROSPECTUS_URL} target="_blank" rel="noopener">
+              <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
                 <Download /> Download Prospectus
               </a>
             </Button>
@@ -587,7 +587,7 @@ const Index = () => {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild variant="navy" size="lg">
-                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener">
+                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
                     <Download /> Download Prospectus
                   </a>
                 </Button>
@@ -742,25 +742,25 @@ const Index = () => {
               </div>
             </div>
 
-            <form
-              className="lg:col-span-3 rounded-3xl bg-card border border-border p-8 md:p-10 shadow-card space-y-5"
-              action="mailto:holly@autismmeetsfaith.org"
-              method="post"
-              encType="text/plain"
-            >
+            <div className="lg:col-span-3 rounded-3xl bg-card border border-border p-8 md:p-10 shadow-card space-y-5">
               <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Name"><Input name="name" required placeholder="Your name" /></Field>
+                <Field label="Name"><Input name="name" placeholder="Your name" /></Field>
                 <Field label="Organization"><Input name="organization" placeholder="Company / nonprofit" /></Field>
-                <Field label="Email"><Input name="email" type="email" required placeholder="you@example.com" /></Field>
+                <Field label="Email"><Input name="email" type="email" placeholder="you@example.com" /></Field>
                 <Field label="Phone"><Input name="phone" type="tel" placeholder="(555) 555-5555" /></Field>
               </div>
               <Field label="Message">
-                <Textarea name="message" required rows={5} placeholder="Tell us about your interest in BRIDGE 2026..." />
+                <Textarea name="message" rows={5} placeholder="Tell us about your interest in BRIDGE 2026..." />
               </Field>
-              <Button type="submit" variant="navy" size="lg" className="w-full md:w-auto">
-                Send Message <ArrowRight />
+              <p className="text-xs text-muted-foreground">
+                Click below to open your email app with your message — Holly responds to every inquiry personally.
+              </p>
+              <Button asChild variant="navy" size="lg" className="w-full md:w-auto">
+                <a href={CONTACT_MAILTO}>
+                  <Mail /> Email Holly About Bridge 2026
+                </a>
               </Button>
-            </form>
+            </div>
           </div>
         </div>
       </section>
@@ -799,16 +799,18 @@ const Index = () => {
               <p className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Take Action</p>
               <div className="flex flex-col gap-3">
                 <Button asChild variant="hero">
-                  <a href="#sponsor-levels">Become a Sponsor</a>
+                  <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">Sponsor Bridge 2026</a>
                 </Button>
                 <Button asChild variant="outlineLight">
-                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener">
+                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
                     <Download /> Download Prospectus
                   </a>
                 </Button>
               </div>
               <div className="mt-6 text-sm text-white/70 space-y-1">
-                <p>holly@autismmeetsfaith.org</p>
+                <p>
+                  <a href={HOLLY_EMAIL_MAILTO} className="hover:text-gold">holly@autismmeetsfaith.org</a>
+                </p>
                 <p>(832) 224-1147</p>
               </div>
             </div>
