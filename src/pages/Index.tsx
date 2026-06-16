@@ -461,6 +461,48 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          {/* Zeffy QR Code */}
+          <div className="mt-16 grid lg:grid-cols-5 gap-8 items-center rounded-3xl bg-white/5 backdrop-blur-sm border border-white/15 p-8 md:p-12">
+            <div className="lg:col-span-2 flex justify-center">
+              <a
+                href={ZEFFY_SPONSOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl bg-white p-5 md:p-6 shadow-elegant hover:scale-[1.02] transition-transform"
+                aria-label="Open Bridge 2026 Zeffy sponsorship form"
+              >
+                <img
+                  src={ZEFFY_QR_SRC}
+                  alt="QR code linking to the Bridge 2026 Zeffy sponsorship payment form"
+                  width={320}
+                  height={320}
+                  className="w-56 h-56 md:w-72 md:h-72 block"
+                />
+              </a>
+            </div>
+            <div className="lg:col-span-3 text-center lg:text-left">
+              <p className="eyebrow !text-gold mb-3">Sponsor in Seconds</p>
+              <h3 className="font-display text-3xl md:text-4xl font-semibold text-white text-balance">
+                Scan to Sponsor <span className="text-gold">Bridge 2026</span>
+              </h3>
+              <p className="mt-4 text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Online sponsorship payments are processed securely through Zeffy.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Button asChild variant="hero" size="lg">
+                  <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">
+                    Sponsor Online <ArrowRight />
+                  </a>
+                </Button>
+                <Button asChild variant="outlineLight" size="lg">
+                  <a href={PROSPECTUS_URL} target="_blank" rel="noopener noreferrer">
+                    <Download /> Download Prospectus
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
