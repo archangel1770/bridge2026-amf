@@ -729,6 +729,10 @@ const Index = () => {
         </div>
       </section>
 
+      <ScheduleSection />
+
+      <ImpactSection />
+
       {/* ============== VENUE ============== */}
       <section id="venue" className="py-24 md:py-32 bg-background">
         <div className="container-tight">
@@ -774,6 +778,16 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <FAQSection />
+
+      <GallerySection />
+
+      <MediaSection />
+
+      <TestimonialsSection />
+
+      <ShareButtons />
 
       {/* ============== CONTACT ============== */}
       <section id="contact" className="py-24 md:py-32 bg-gradient-soft">
