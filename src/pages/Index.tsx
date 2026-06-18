@@ -478,7 +478,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ============== SPONSOR INTRO ============== */}
+      {/* ============== FEATURED SPONSORS CAROUSEL ============== */}
+      <section id="featured-sponsors" className="py-16 md:py-20 bg-background border-y border-border/60">
+        <div className="container-tight">
+          <Reveal>
+            <div className="text-center mb-6">
+              <p className="eyebrow mb-3">Featured Sponsors</p>
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-[hsl(var(--navy))]">
+                Sponsor logos <span className="text-gold">coming soon</span>
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Logos appear here as partners join. Want to be first? Become a sponsor today.
+              </p>
+            </div>
+          </Reveal>
+          <SponsorLogoCarousel />
+        </div>
+      </section>
+
+      <WaveSeparator
+        topColor="hsl(var(--background))"
+        bottomColor="hsl(218 60% 9%)"
+      />
+
       <section id="sponsors" className="py-24 md:py-32 bg-gradient-hero text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--gold)/0.18),transparent_50%)]" />
         <div className="container-tight relative z-10">
