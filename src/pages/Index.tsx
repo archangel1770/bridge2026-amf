@@ -219,9 +219,28 @@ const speakers = [
 ];
 
 const Index = () => {
+  const heroImgRef = useRef<HTMLImageElement | null>(null);
+
+  // Subtle hero parallax
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    const onScroll = () => {
+      const el = heroImgRef.current;
+      if (!el) return;
+      const y = Math.min(window.scrollY, 800) * 0.25;
+      el.style.transform = `translate3d(0, ${y}px, 0) scale(1.08)`;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
+      <LoadingScreen />
       <SiteHeader />
+      <FloatingSponsorCTA />
 
       {/* ============== HERO ============== */}
       <section
@@ -229,11 +248,13 @@ const Index = () => {
         className="relative min-h-[100svh] flex items-center pt-24 pb-16 overflow-hidden"
       >
         <img
+          ref={heroImgRef}
           src={heroBridge}
-          alt="Bridge silhouette at golden hour"
+          alt="Bridge silhouette at golden hour symbolizing connection from diagnosis to daily success"
           width={1920}
           height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover will-change-transform scale-[1.08]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))]/85 via-[hsl(var(--navy))]/70 to-[hsl(var(--navy-deep))]/95" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,hsl(var(--navy-deep))_90%)]" />
@@ -263,7 +284,7 @@ const Index = () => {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button asChild variant="hero" size="lg">
+            <Button asChild variant="hero" size="lg" className="hover:-translate-y-0.5">
               <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">Become a Sponsor <ArrowRight /></a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
@@ -276,12 +297,18 @@ const Index = () => {
             </Button>
           </div>
 
+          {/* Countdown */}
+          <div className="mt-10">
+            <p className="eyebrow !text-gold mb-3">Countdown to Summit Day</p>
+            <Countdown />
+          </div>
+
           {/* Detail cards */}
-          <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-4xl">
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-4xl">
             {heroDetails.map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
-                className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-4 md:p-5"
+                className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-4 md:p-5 hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 <Icon className="text-gold mb-3" size={22} />
                 <p className="text-[10px] uppercase tracking-[0.18em] text-white/60">{label}</p>
