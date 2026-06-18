@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   Calendar,
   Clock,
@@ -32,6 +33,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SectionHeading } from "@/components/SectionHeading";
 import { BridgeDivider } from "@/components/BridgeDivider";
+import { Reveal } from "@/components/Reveal";
+import { Countdown } from "@/components/Countdown";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { FloatingSponsorCTA } from "@/components/FloatingSponsorCTA";
+import { WaveSeparator } from "@/components/WaveSeparator";
+import { SponsorLogoCarousel } from "@/components/SponsorLogoCarousel";
+import { FAQSection } from "@/components/FAQSection";
+import { ScheduleSection } from "@/components/ScheduleSection";
+import { ImpactSection } from "@/components/ImpactSection";
+import { MediaSection } from "@/components/MediaSection";
+import { GallerySection } from "@/components/GallerySection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ShareButtons } from "@/components/ShareButtons";
 import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
 
@@ -40,10 +54,10 @@ const PROSPECTUS_URL =
   "https://drive.google.com/file/d/1g87HTBpGw_cU0qJ_Yq6vhyRj2DLbHYOm/view?usp=sharing";
 const ZEFFY_SPONSOR_URL =
   "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
+const PRIORITY_ACCESS_URL =
+  "https://www.zeffy.com/en-US/newsletter-form/priority-access-2026-autism-meets-faith-summit";
 const TITLE_UNDERWRITER_MAILTO =
   "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Title%20Underwriter%20Inquiry";
-const CONTACT_MAILTO =
-  "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Inquiry";
 const HOLLY_EMAIL_MAILTO = "mailto:holly@autismmeetsfaith.org";
 const ZEFFY_QR_SRC = `https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=16&data=${encodeURIComponent(
   ZEFFY_SPONSOR_URL
@@ -54,7 +68,6 @@ const ZEFFY_LINKS = {
   major: ZEFFY_SPONSOR_URL,
   community: ZEFFY_SPONSOR_URL,
 };
-const REGISTER_URL = "#register"; // TODO: Zeffy registration link
 
 const heroDetails = [
   { icon: Calendar, label: "Date", value: "November 7, 2026" },
@@ -206,9 +219,28 @@ const speakers = [
 ];
 
 const Index = () => {
+  const heroImgRef = useRef<HTMLImageElement | null>(null);
+
+  // Subtle hero parallax
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    const onScroll = () => {
+      const el = heroImgRef.current;
+      if (!el) return;
+      const y = Math.min(window.scrollY, 800) * 0.25;
+      el.style.transform = `translate3d(0, ${y}px, 0) scale(1.08)`;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
+      <LoadingScreen />
       <SiteHeader />
+      <FloatingSponsorCTA />
 
       {/* ============== HERO ============== */}
       <section
@@ -216,11 +248,13 @@ const Index = () => {
         className="relative min-h-[100svh] flex items-center pt-24 pb-16 overflow-hidden"
       >
         <img
+          ref={heroImgRef}
           src={heroBridge}
-          alt="Bridge silhouette at golden hour"
+          alt="Bridge silhouette at golden hour symbolizing connection from diagnosis to daily success"
           width={1920}
           height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover will-change-transform scale-[1.08]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))]/85 via-[hsl(var(--navy))]/70 to-[hsl(var(--navy-deep))]/95" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,hsl(var(--navy-deep))_90%)]" />
@@ -250,7 +284,7 @@ const Index = () => {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button asChild variant="hero" size="lg">
+            <Button asChild variant="hero" size="lg" className="hover:-translate-y-0.5">
               <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">Become a Sponsor <ArrowRight /></a>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
@@ -263,12 +297,18 @@ const Index = () => {
             </Button>
           </div>
 
+          {/* Countdown */}
+          <div className="mt-10">
+            <p className="eyebrow !text-gold mb-3">Countdown to Summit Day</p>
+            <Countdown />
+          </div>
+
           {/* Detail cards */}
-          <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-4xl">
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-4xl">
             {heroDetails.map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
-                className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-4 md:p-5"
+                className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-4 md:p-5 hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 <Icon className="text-gold mb-3" size={22} />
                 <p className="text-[10px] uppercase tracking-[0.18em] text-white/60">{label}</p>
@@ -438,7 +478,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ============== SPONSOR INTRO ============== */}
+      {/* ============== FEATURED SPONSORS CAROUSEL ============== */}
+      <section id="featured-sponsors" className="py-16 md:py-20 bg-background border-y border-border/60">
+        <div className="container-tight">
+          <Reveal>
+            <div className="text-center mb-6">
+              <p className="eyebrow mb-3">Featured Sponsors</p>
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-[hsl(var(--navy))]">
+                Sponsor logos <span className="text-gold">coming soon</span>
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Logos appear here as partners join. Want to be first? Become a sponsor today.
+              </p>
+            </div>
+          </Reveal>
+          <SponsorLogoCarousel />
+        </div>
+      </section>
+
+      <WaveSeparator
+        topColor="hsl(var(--background))"
+        bottomColor="hsl(218 60% 9%)"
+      />
+
       <section id="sponsors" className="py-24 md:py-32 bg-gradient-hero text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--gold)/0.18),transparent_50%)]" />
         <div className="container-tight relative z-10">
@@ -654,17 +716,22 @@ const Index = () => {
               Be the first to know when tickets go live.
             </h3>
             <p className="mt-4 text-muted-foreground max-w-md mx-auto">
-              Join the interest list and we'll send registration details directly to your inbox.
+              Join Priority Access and we'll send registration details directly to your inbox first.
             </p>
             <div className="mt-8">
-              <Button asChild variant="hero" size="xl">
-                {/* Zeffy ticketing link placeholder */}
-                <a href={REGISTER_URL}>Join the Interest List <ArrowRight /></a>
+              <Button asChild variant="hero" size="xl" className="hover:-translate-y-0.5">
+                <a href={PRIORITY_ACCESS_URL} target="_blank" rel="noopener noreferrer">
+                  Join Priority Access <ArrowRight />
+                </a>
               </Button>
             </div>
           </div>
         </div>
       </section>
+
+      <ScheduleSection />
+
+      <ImpactSection />
 
       {/* ============== VENUE ============== */}
       <section id="venue" className="py-24 md:py-32 bg-background">
@@ -712,6 +779,16 @@ const Index = () => {
         </div>
       </section>
 
+      <FAQSection />
+
+      <GallerySection />
+
+      <MediaSection />
+
+      <TestimonialsSection />
+
+      <ShareButtons />
+
       {/* ============== CONTACT ============== */}
       <section id="contact" className="py-24 md:py-32 bg-gradient-soft">
         <div className="container-tight max-w-6xl">
@@ -755,8 +832,8 @@ const Index = () => {
               <p className="text-xs text-muted-foreground">
                 Click below to open your email app with your message — Holly responds to every inquiry personally.
               </p>
-              <Button asChild variant="navy" size="lg" className="w-full md:w-auto">
-                <a href={CONTACT_MAILTO}>
+              <Button asChild variant="navy" size="lg" className="w-full md:w-auto hover:-translate-y-0.5">
+                <a href={HOLLY_EMAIL_MAILTO}>
                   <Mail /> Email Holly About Bridge 2026
                 </a>
               </Button>
