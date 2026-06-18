@@ -694,12 +694,13 @@ const Index = () => {
               Be the first to know when tickets go live.
             </h3>
             <p className="mt-4 text-muted-foreground max-w-md mx-auto">
-              Join the interest list and we'll send registration details directly to your inbox.
+              Join Priority Access and we'll send registration details directly to your inbox first.
             </p>
             <div className="mt-8">
-              <Button asChild variant="hero" size="xl">
-                {/* Zeffy ticketing link placeholder */}
-                <a href={REGISTER_URL}>Join the Interest List <ArrowRight /></a>
+              <Button asChild variant="hero" size="xl" className="hover:-translate-y-0.5">
+                <a href={PRIORITY_ACCESS_URL} target="_blank" rel="noopener noreferrer">
+                  Join Priority Access <ArrowRight />
+                </a>
               </Button>
             </div>
           </div>
@@ -795,8 +796,8 @@ const Index = () => {
               <p className="text-xs text-muted-foreground">
                 Click below to open your email app with your message — Holly responds to every inquiry personally.
               </p>
-              <Button asChild variant="navy" size="lg" className="w-full md:w-auto">
-                <a href={CONTACT_MAILTO}>
+              <Button asChild variant="navy" size="lg" className="w-full md:w-auto hover:-translate-y-0.5">
+                <a href={HOLLY_EMAIL_MAILTO}>
                   <Mail /> Email Holly About Bridge 2026
                 </a>
               </Button>
