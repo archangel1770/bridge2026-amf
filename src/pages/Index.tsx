@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   Calendar,
   Clock,
@@ -32,6 +33,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SectionHeading } from "@/components/SectionHeading";
 import { BridgeDivider } from "@/components/BridgeDivider";
+import { Reveal } from "@/components/Reveal";
+import { Countdown } from "@/components/Countdown";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { FloatingSponsorCTA } from "@/components/FloatingSponsorCTA";
+import { WaveSeparator } from "@/components/WaveSeparator";
+import { SponsorLogoCarousel } from "@/components/SponsorLogoCarousel";
+import { FAQSection } from "@/components/FAQSection";
+import { ScheduleSection } from "@/components/ScheduleSection";
+import { ImpactSection } from "@/components/ImpactSection";
+import { MediaSection } from "@/components/MediaSection";
+import { GallerySection } from "@/components/GallerySection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ShareButtons } from "@/components/ShareButtons";
 import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
 
@@ -40,10 +54,10 @@ const PROSPECTUS_URL =
   "https://drive.google.com/file/d/1g87HTBpGw_cU0qJ_Yq6vhyRj2DLbHYOm/view?usp=sharing";
 const ZEFFY_SPONSOR_URL =
   "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
+const PRIORITY_ACCESS_URL =
+  "https://www.zeffy.com/en-US/newsletter-form/priority-access-2026-autism-meets-faith-summit";
 const TITLE_UNDERWRITER_MAILTO =
   "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Title%20Underwriter%20Inquiry";
-const CONTACT_MAILTO =
-  "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Inquiry";
 const HOLLY_EMAIL_MAILTO = "mailto:holly@autismmeetsfaith.org";
 const ZEFFY_QR_SRC = `https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=16&data=${encodeURIComponent(
   ZEFFY_SPONSOR_URL
@@ -54,7 +68,6 @@ const ZEFFY_LINKS = {
   major: ZEFFY_SPONSOR_URL,
   community: ZEFFY_SPONSOR_URL,
 };
-const REGISTER_URL = "#register"; // TODO: Zeffy registration link
 
 const heroDetails = [
   { icon: Calendar, label: "Date", value: "November 7, 2026" },
