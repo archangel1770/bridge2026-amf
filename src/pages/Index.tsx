@@ -245,103 +245,91 @@ const Index = () => {
       <SiteHeader />
       <FloatingSponsorCTA />
 
-      {/* ============== HERO ============== */}
+      {/* ============== HERO (cinematic, family image blended) ============== */}
       <section
         id="home"
-        className="relative min-h-[100svh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-gradient-to-b from-white via-[hsl(var(--navy))/0.02] to-[hsl(var(--navy-deep))]"
+        className="relative flex flex-col items-center justify-start pt-28 md:pt-32 pb-0 overflow-hidden bg-[hsl(var(--navy-deep))] text-white"
       >
-        {/* Premium light ambience */}
-        <div
-          ref={heroImgRef}
-          className="absolute inset-0 will-change-transform"
-          aria-hidden="true"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center_top,hsl(var(--gold)/0.18),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,hsl(var(--teal)/0.12),transparent_60%)]" />
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.25),transparent_70%)] blur-3xl opacity-70" />
+        {/* Family photo as atmospheric background */}
+        <div ref={heroImgRef} className="absolute inset-0 will-change-transform" aria-hidden="true">
+          <img
+            src={familyImpact}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.35] md:opacity-40 scale-105"
+            fetchPriority="high"
+          />
+          {/* Cinematic navy layering */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))]/95 via-[hsl(var(--navy-deep))]/70 to-[hsl(var(--navy-deep))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,hsl(var(--gold)/0.28),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_85%,hsl(var(--navy-deep))_10%,transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_60%,hsl(var(--teal)/0.14),transparent_55%)]" />
+          {/* subtle vignette */}
+          <div className="absolute inset-0 shadow-[inset_0_0_220px_60px_hsl(var(--navy-deep))]" />
         </div>
 
-        {/* Subtle dot grid */}
+        {/* Light grain */}
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none"
           style={{
-            backgroundImage:
-              "radial-gradient(hsl(var(--navy)) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
+            backgroundImage: "radial-gradient(white 1px, transparent 1px)",
+            backgroundSize: "26px 26px",
           }}
           aria-hidden="true"
         />
 
-        <div className="container-tight max-w-6xl relative z-10 text-center animate-fade-up">
-          {/* Logo with premium glow */}
+        <div className="container-tight max-w-5xl relative z-10 text-center animate-fade-up">
+          {/* BRIDGE 2026 logo — primary focal point */}
           <div className="relative mx-auto inline-block">
-            <div className="absolute -inset-10 md:-inset-20 bg-gradient-gold opacity-20 blur-3xl rounded-full" aria-hidden="true" />
+            <div className="absolute -inset-16 md:-inset-28 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.45),transparent_65%)] blur-3xl" aria-hidden="true" />
             <img
               src={bridgeLogo}
               alt="BRIDGE 2026 — From Diagnosis to Daily Success. Presented by Autism Meets Faith."
               width={1600}
               height={900}
               fetchPriority="high"
-              className="relative mx-auto w-full max-w-[920px] md:max-w-[1040px] h-auto drop-shadow-[0_20px_50px_rgba(11,28,58,0.18)]"
+              className="relative mx-auto w-full max-w-[860px] md:max-w-[960px] h-auto drop-shadow-[0_25px_60px_rgba(0,0,0,0.55)]"
             />
           </div>
 
-          {/* Tagline */}
-          <div className="mt-8 md:mt-10 flex items-center justify-center gap-3 md:gap-5">
-            <span className="h-px w-10 md:w-16 bg-gradient-to-r from-transparent to-[hsl(var(--gold))]" />
-            <p className="font-display text-sm sm:text-base md:text-xl font-semibold uppercase tracking-[0.25em] md:tracking-[0.4em] text-[hsl(var(--navy))]">
-              From Diagnosis <span className="text-[hsl(var(--gold))]">to</span> Daily Success
-            </p>
-            <span className="h-px w-10 md:w-16 bg-gradient-to-l from-transparent to-[hsl(var(--gold))]" />
-          </div>
-
-          {/* CTAs */}
-          <div className="mt-10 md:mt-12 flex flex-wrap gap-3 md:gap-4 justify-center">
-            <Button asChild variant="navy" size="xl" className="hover:-translate-y-0.5 shadow-elegant">
+          {/* Primary CTA */}
+          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
+            <Button asChild variant="hero" size="xl" className="shadow-gold">
               <a href="#attend">Attend BRIDGE 2026 <ArrowRight /></a>
             </Button>
-            <Button asChild variant="outline" size="xl" className="border-2 border-[hsl(var(--gold))] text-[hsl(var(--navy))] hover:bg-[hsl(var(--gold))] hover:text-[hsl(var(--navy))]">
+            <Button asChild variant="outlineLight" size="xl">
               <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">
                 Become a Sponsor
               </a>
             </Button>
           </div>
-        </div>
 
-        {/* Bottom transition */}
-        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-[hsl(var(--navy-deep))] pointer-events-none" />
-      </section>
-
-      {/* ============== IMPACT SNAPSHOT ============== */}
-      <section className="relative -mt-1 py-20 md:py-28 bg-[hsl(var(--navy-deep))] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--gold)/0.18),transparent_55%)]" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--teal)/0.12),transparent_60%)]" aria-hidden="true" />
-
-        <div className="container-tight relative z-10">
+          {/* Emotional headline — integrated, not a separate section */}
           <Reveal>
-            <div className="text-center mb-14">
-              <p className="eyebrow !text-gold mb-3">Our Proven Impact</p>
-              <h2 className="font-display text-3xl md:text-5xl font-semibold text-white text-balance leading-tight">
-                Real Families. Real Numbers. <span className="text-gold">Real Change.</span>
-              </h2>
+            <div className="mt-16 md:mt-24">
+              <h1 className="font-display font-semibold text-white text-balance leading-[1.08] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
+                <span className="block">Building Pathways.</span>
+                <span className="block mt-1 md:mt-2">Connecting Communities.</span>
+                <span className="block mt-1 md:mt-2 text-gold italic">Transforming Lives.</span>
+              </h1>
+              <div className="mx-auto mt-7 h-px w-28 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+          {/* Impact stats — integrated at bottom of hero, matching mockup */}
+          <div className="mt-14 md:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pb-20 md:pb-28">
             {[
-              { stat: "700+", label: "Children Served" },
-              { stat: "3,000+", label: "Toys & Sensory Materials Distributed" },
-              { stat: "200+", label: "Families Supported Through Shopping Assistance" },
-              { stat: "3,000+", label: "Lives Impacted" },
+              { icon: Users, stat: "700+", label: "Children Served" },
+              { icon: Sparkles, stat: "3,000+", label: "Toys & Sensory Materials Distributed" },
+              { icon: HandHeart, stat: "200+", label: "Families Supported Through Shopping Assistance" },
+              { icon: HeartHandshake, stat: "3,000+", label: "Lives Impacted" },
             ].map((item, i) => (
               <Reveal key={item.label} delay={i * 80}>
-                <div className="group relative h-full rounded-3xl bg-white/[0.06] backdrop-blur-md border border-white/15 p-6 md:p-8 text-center hover:bg-white/[0.1] hover:border-[hsl(var(--gold))]/50 hover:-translate-y-1 transition-all duration-500 shadow-elegant overflow-hidden">
-                  <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[hsl(var(--gold))]/15 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
-                  <p className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gold leading-none drop-shadow-[0_2px_20px_rgba(212,175,55,0.35)]">
+                <div className="group relative h-full rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 md:p-7 text-center hover:bg-white/[0.08] hover:border-[hsl(var(--gold))]/50 transition-all duration-500">
+                  <item.icon className="mx-auto text-gold mb-3" size={26} aria-hidden="true" />
+                  <p className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-none drop-shadow-[0_2px_18px_rgba(212,175,55,0.35)]">
                     {item.stat}
                   </p>
-                  <div className="mx-auto mt-4 h-px w-10 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
-                  <p className="mt-4 text-xs md:text-sm uppercase tracking-[0.16em] text-white/80 leading-relaxed">
+                  <p className="mt-3 text-[10px] md:text-[11px] uppercase tracking-[0.16em] text-white/75 leading-relaxed">
                     {item.label}
                   </p>
                 </div>
@@ -349,31 +337,9 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
 
-      {/* ============== FAMILY IMPACT BANNER ============== */}
-      <section className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden">
-        <img
-          src={familyImpact}
-          alt="An Autism Meets Faith family smiling together at a community event"
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-        />
-        {/* Navy overlay — preserves warmth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))]/75 via-[hsl(var(--navy))]/55 to-[hsl(var(--navy-deep))]/85" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,hsl(var(--navy-deep))/0.6_90%)]" />
-
-        <div className="container-tight relative z-10 text-center py-20 md:py-28">
-          <Reveal>
-            <p className="eyebrow !text-gold mb-6">The Heart of BRIDGE 2026</p>
-            <h2 className="font-display font-bold text-white text-balance leading-[1.05] tracking-tight text-3xl sm:text-4xl md:text-6xl lg:text-7xl">
-              <span className="block">Building Pathways.</span>
-              <span className="block mt-2 md:mt-3">Connecting Communities.</span>
-              <span className="block mt-2 md:mt-3 text-gold italic">Transforming Lives.</span>
-            </h2>
-            <div className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
-          </Reveal>
-        </div>
+        {/* Gold accent bottom rule (matches mockup) */}
+        <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/70 to-transparent" />
       </section>
 
       {/* ============== COUNTDOWN ============== */}
