@@ -222,7 +222,7 @@ const speakers = [
 ];
 
 const Index = () => {
-  const heroImgRef = useRef<HTMLImageElement | null>(null);
+  const heroImgRef = useRef<HTMLDivElement | null>(null);
 
   // Subtle hero parallax
   useEffect(() => {
