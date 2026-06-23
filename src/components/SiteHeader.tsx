@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import amfLogo from "@/assets/amf-logo.png";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -40,7 +41,14 @@ export const SiteHeader = () => {
           scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
         }`}
       >
-        <a href="#home" className="flex items-center gap-2 group" aria-label="Bridge 2026 home">
+        <a href="#home" className="flex items-center gap-2.5 group" aria-label="Bridge 2026 home">
+          <img
+            src={amfLogo}
+            alt="Autism Meets Faith"
+            width={40}
+            height={40}
+            className="h-8 w-8 md:h-9 md:w-9 rounded-full bg-white p-0.5 shadow-md ring-1 ring-white/20"
+          />
           <span className="font-display text-xl md:text-2xl font-bold tracking-tight text-white">
             BRIDGE<span className="text-gold">.</span>
             <span className="text-gold text-sm font-medium ml-1 tracking-[0.2em]">2026</span>
