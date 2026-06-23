@@ -11,7 +11,15 @@ function calc() {
   return { days, hours, minutes, seconds };
 }
 
-export const Countdown = ({ light = true }: { light?: boolean }) => {
+type Variant = "compact" | "premium";
+
+export const Countdown = ({
+  light = true,
+  variant = "compact",
+}: {
+  light?: boolean;
+  variant?: Variant;
+}) => {
   const [t, setT] = useState(calc());
   useEffect(() => {
     const id = setInterval(() => setT(calc()), 1000);
@@ -24,6 +32,36 @@ export const Countdown = ({ light = true }: { light?: boolean }) => {
     { label: "Minutes", value: t.minutes },
     { label: "Seconds", value: t.seconds },
   ];
+
+  if (variant === "premium") {
+    return (
+      <div
+        className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-4xl mx-auto"
+        role="timer"
+        aria-label="Countdown to BRIDGE 2026"
+      >
+        {units.map((u) => (
+          <div
+            key={u.label}
+            className="group relative rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/20 px-3 py-6 md:py-10 text-center shadow-elegant overflow-hidden"
+          >
+            {/* Gold glow */}
+            <div className="absolute -inset-px rounded-2xl md:rounded-3xl bg-gradient-to-br from-[hsl(var(--gold))]/30 via-transparent to-transparent opacity-60" aria-hidden="true" />
+            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full bg-[hsl(var(--gold))]/20 blur-2xl" aria-hidden="true" />
+            <div className="relative">
+              <p className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tabular-nums text-gold leading-none drop-shadow-[0_4px_30px_rgba(212,175,55,0.45)]">
+                {String(u.value).padStart(2, "0")}
+              </p>
+              <div className="mx-auto mt-4 h-px w-10 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
+              <p className="mt-3 text-[10px] md:text-xs uppercase tracking-[0.28em] text-white/80 font-semibold">
+                {u.label}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div
