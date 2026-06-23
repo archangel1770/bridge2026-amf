@@ -231,8 +231,8 @@ const Index = () => {
     const onScroll = () => {
       const el = heroImgRef.current;
       if (!el) return;
-      const y = Math.min(window.scrollY, 800) * 0.25;
-      el.style.transform = `translate3d(0, ${y}px, 0) scale(1.08)`;
+      const y = Math.min(window.scrollY, 800) * 0.15;
+      el.style.transform = `translate3d(0, ${y}px, 0)`;
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
