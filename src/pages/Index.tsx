@@ -51,6 +51,8 @@ import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
 import bridgeLogo from "/bridge-2026-hero-logo.jpeg";
 import familyImpact from "@/assets/family-impact.jpg";
+import familyStory from "@/assets/family-story.png.asset.json";
+
 import amfLogo from "@/assets/amf-logo.png";
 
 // === Live links ===
@@ -286,18 +288,26 @@ const Index = () => {
         />
 
         <div className="container-tight max-w-5xl relative z-10 text-center animate-fade-up">
-          {/* BRIDGE 2026 logo — primary focal point */}
+          {/* BRIDGE 2026 logo — primary focal point, blended into hero */}
           <div className="relative mx-auto inline-block">
-            <div className="absolute -inset-16 md:-inset-28 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.45),transparent_65%)] blur-3xl" aria-hidden="true" />
+            <div className="absolute -inset-20 md:-inset-32 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.55),transparent_65%)] blur-3xl" aria-hidden="true" />
+            <div className="absolute -inset-10 md:-inset-16 bg-[radial-gradient(ellipse_at_center,hsl(var(--navy-deep)/0.85),transparent_70%)] blur-2xl" aria-hidden="true" />
             <img
               src={bridgeLogo}
               alt="BRIDGE 2026 — From Diagnosis to Daily Success. Presented by Autism Meets Faith."
               width={1600}
               height={900}
               fetchPriority="high"
-              className="relative mx-auto w-full max-w-[860px] md:max-w-[960px] h-auto drop-shadow-[0_25px_60px_rgba(0,0,0,0.55)]"
+              className="relative mx-auto w-full max-w-[860px] md:max-w-[960px] h-auto mix-blend-screen drop-shadow-[0_25px_60px_rgba(0,0,0,0.55)]"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 75% 70% at 50% 50%, #000 55%, transparent 100%)",
+                maskImage:
+                  "radial-gradient(ellipse 75% 70% at 50% 50%, #000 55%, transparent 100%)",
+              }}
             />
           </div>
+
 
           {/* Primary CTA — single button to match mockup */}
           <div className="mt-8 md:mt-10 flex justify-center">
@@ -430,26 +440,51 @@ const Index = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))]/95 via-[hsl(var(--navy))]/90 to-[hsl(var(--navy-deep))]" />
 
-        <div className="container-tight relative z-10 max-w-4xl text-center">
-          <p className="eyebrow mb-6">The Story</p>
-          <h2 className="font-display text-3xl md:text-5xl font-semibold text-balance leading-tight">
-            Every Journey <span className="italic text-gold">Begins Somewhere</span>
-          </h2>
-          <div className="mt-10 space-y-6 text-lg leading-relaxed text-white/85">
-            <p>
-              A diagnosis can change everything. Suddenly, families are faced with questions,
-              uncertainty, and a system that can feel overwhelming.
-            </p>
-            <p className="font-display italic text-2xl md:text-3xl text-gold/90 text-balance">
-              “Where do we start? Who can we trust? What comes next?”
-            </p>
-            <p>
-              No family should have to walk this road alone. BRIDGE exists to bring people,
-              resources, and hope together — creating a clear path from diagnosis to daily success.
-            </p>
+        <div className="container-tight relative z-10 max-w-4xl">
+          <Reveal>
+            <div className="relative mx-auto mb-12 md:mb-16 max-w-3xl">
+              <div className="absolute -inset-4 md:-inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.35),transparent_70%)] blur-2xl" aria-hidden="true" />
+              <div className="relative rounded-3xl overflow-hidden border border-[hsl(var(--gold))]/30 shadow-elegant">
+                <img
+                  src={familyStory.url}
+                  alt="An Autism Meets Faith family — parents and two children smiling together at a community event"
+                  width={1536}
+                  height={1024}
+                  loading="lazy"
+                  className="w-full h-auto object-cover aspect-[3/2]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--navy-deep))]/80 via-[hsl(var(--navy-deep))]/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
+                  <p className="font-display italic text-gold text-sm md:text-base tracking-wide">
+                    Real families. Real connection. Real hope.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="text-center">
+            <p className="eyebrow mb-6">The Story</p>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold text-balance leading-tight">
+              Every Journey <span className="italic text-gold">Begins Somewhere</span>
+            </h2>
+            <div className="mt-10 space-y-6 text-lg leading-relaxed text-white/85">
+              <p>
+                A diagnosis can change everything. Suddenly, families are faced with questions,
+                uncertainty, and a system that can feel overwhelming.
+              </p>
+              <p className="font-display italic text-2xl md:text-3xl text-gold/90 text-balance">
+                "Where do we start? Who can we trust? What comes next?"
+              </p>
+              <p>
+                No family should have to walk this road alone. BRIDGE exists to bring people,
+                resources, and hope together — creating a clear path from diagnosis to daily success.
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* ============== CHALLENGE ============== */}
       <section className="py-24 md:py-32 bg-background">
