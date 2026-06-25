@@ -290,7 +290,7 @@ const Index = () => {
           <div className="relative mx-auto inline-block">
             <div className="absolute -inset-16 md:-inset-28 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.45),transparent_65%)] blur-3xl" aria-hidden="true" />
             <img
-              src={bridgeLogo}
+              src={bridgeLogo.url}
               alt="BRIDGE 2026 — From Diagnosis to Daily Success. Presented by Autism Meets Faith."
               width={1600}
               height={900}
