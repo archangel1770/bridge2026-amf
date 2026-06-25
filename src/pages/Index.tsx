@@ -246,29 +246,36 @@ const Index = () => {
       <SiteHeader />
       <FloatingSponsorCTA />
 
-      {/* ============== HERO (cinematic, family image blended) ============== */}
+      {/* ============== HERO (matches mockup) ============== */}
       <section
         id="home"
-        className="relative flex flex-col items-center justify-start pt-28 md:pt-32 pb-0 overflow-hidden bg-[hsl(var(--navy-deep))] text-white"
+        className="relative flex flex-col items-center pt-24 md:pt-28 pb-0 overflow-hidden bg-[hsl(var(--navy-deep))] text-white"
       >
-        {/* Family photo as atmospheric background */}
-        <div ref={heroImgRef} className="absolute inset-0 will-change-transform" aria-hidden="true">
+        {/* Base navy + atmospheric glows */}
+        <div className="absolute inset-0" aria-hidden="true">
+          <div className="absolute inset-0 bg-[hsl(var(--navy-deep))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_18%,hsl(var(--gold)/0.22),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_55%,hsl(var(--teal)/0.12),transparent_55%)]" />
+        </div>
+
+        {/* Family photo — blended band in the mid-lower hero, behind headline + stats */}
+        <div
+          ref={heroImgRef}
+          className="absolute left-0 right-0 top-[44%] bottom-0 will-change-transform overflow-hidden"
+          aria-hidden="true"
+        >
           <img
             src={familyImpact}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.35] md:opacity-40 scale-105"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.55] md:opacity-60"
             fetchPriority="high"
           />
-          {/* Cinematic navy layering */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))]/95 via-[hsl(var(--navy-deep))]/70 to-[hsl(var(--navy-deep))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,hsl(var(--gold)/0.28),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_85%,hsl(var(--navy-deep))_10%,transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_60%,hsl(var(--teal)/0.14),transparent_55%)]" />
-          {/* subtle vignette */}
-          <div className="absolute inset-0 shadow-[inset_0_0_220px_60px_hsl(var(--navy-deep))]" />
+          {/* Fade family image into navy at top + bottom for seamless blend */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))] via-[hsl(var(--navy-deep))]/55 to-[hsl(var(--navy-deep))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,transparent_30%,hsl(var(--navy-deep))_85%)]" />
         </div>
 
-        {/* Light grain */}
+        {/* Grain */}
         <div
           className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none"
           style={{
@@ -292,22 +299,17 @@ const Index = () => {
             />
           </div>
 
-          {/* Primary CTA */}
-          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
+          {/* Primary CTA — single button to match mockup */}
+          <div className="mt-8 md:mt-10 flex justify-center">
             <Button asChild variant="hero" size="xl" className="shadow-gold">
               <a href="#attend">Attend BRIDGE 2026 <ArrowRight /></a>
             </Button>
-            <Button asChild variant="outlineLight" size="xl">
-              <a href={ZEFFY_SPONSOR_URL} target="_blank" rel="noopener noreferrer">
-                Become a Sponsor
-              </a>
-            </Button>
           </div>
 
-          {/* Emotional headline — integrated, not a separate section */}
+          {/* Emotional headline — sits over the family photo band */}
           <Reveal>
-            <div className="mt-16 md:mt-24">
-              <h1 className="font-display font-semibold text-white text-balance leading-[1.08] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
+            <div className="mt-20 md:mt-28">
+              <h1 className="font-display font-semibold text-white text-balance leading-[1.08] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_4px_30px_rgba(0,0,0,0.7)]">
                 <span className="block">Building Pathways.</span>
                 <span className="block mt-1 md:mt-2">Connecting Communities.</span>
                 <span className="block mt-1 md:mt-2 text-gold italic">Transforming Lives.</span>
@@ -316,19 +318,19 @@ const Index = () => {
             </div>
           </Reveal>
 
-          {/* Impact stats — integrated at bottom of hero, matching mockup */}
+          {/* Impact stats — animated counters */}
           <div className="mt-14 md:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pb-20 md:pb-28">
             {[
-              { icon: Users, stat: "700+", label: "Children Served" },
-              { icon: Sparkles, stat: "3,000+", label: "Toys & Sensory Materials Distributed" },
-              { icon: HandHeart, stat: "200+", label: "Families Supported Through Shopping Assistance" },
-              { icon: HeartHandshake, stat: "3,000+", label: "Lives Impacted" },
+              { icon: Users, value: 700, suffix: "+", label: "Children Served" },
+              { icon: Sparkles, value: 3000, suffix: "+", label: "Toys & Sensory Materials Distributed" },
+              { icon: HandHeart, value: 200, suffix: "+", label: "Families Supported Through Shopping Assistance" },
+              { icon: HeartHandshake, value: 3000, suffix: "+", label: "Lives Impacted" },
             ].map((item, i) => (
               <Reveal key={item.label} delay={i * 80}>
                 <div className="group relative h-full rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 p-5 md:p-7 text-center hover:bg-white/[0.08] hover:border-[hsl(var(--gold))]/50 transition-all duration-500">
                   <item.icon className="mx-auto text-gold mb-3" size={26} aria-hidden="true" />
-                  <p className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-none drop-shadow-[0_2px_18px_rgba(212,175,55,0.35)]">
-                    {item.stat}
+                  <p className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-none drop-shadow-[0_2px_18px_rgba(212,175,55,0.35)] tabular-nums">
+                    <Counter to={item.value} suffix={item.suffix} />
                   </p>
                   <p className="mt-3 text-[10px] md:text-[11px] uppercase tracking-[0.16em] text-white/75 leading-relaxed">
                     {item.label}
@@ -339,9 +341,10 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Gold accent bottom rule (matches mockup) */}
+        {/* Gold accent bottom rule */}
         <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/70 to-transparent" />
       </section>
+
 
       {/* ============== COUNTDOWN ============== */}
       <section className="relative py-20 md:py-28 bg-[hsl(var(--navy-deep))] text-white overflow-hidden">
