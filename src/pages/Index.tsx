@@ -286,18 +286,26 @@ const Index = () => {
         />
 
         <div className="container-tight max-w-5xl relative z-10 text-center animate-fade-up">
-          {/* BRIDGE 2026 logo — primary focal point */}
+          {/* BRIDGE 2026 logo — primary focal point, blended into hero */}
           <div className="relative mx-auto inline-block">
-            <div className="absolute -inset-16 md:-inset-28 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.45),transparent_65%)] blur-3xl" aria-hidden="true" />
+            <div className="absolute -inset-20 md:-inset-32 bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.55),transparent_65%)] blur-3xl" aria-hidden="true" />
+            <div className="absolute -inset-10 md:-inset-16 bg-[radial-gradient(ellipse_at_center,hsl(var(--navy-deep)/0.85),transparent_70%)] blur-2xl" aria-hidden="true" />
             <img
               src={bridgeLogo}
               alt="BRIDGE 2026 — From Diagnosis to Daily Success. Presented by Autism Meets Faith."
               width={1600}
               height={900}
               fetchPriority="high"
-              className="relative mx-auto w-full max-w-[860px] md:max-w-[960px] h-auto drop-shadow-[0_25px_60px_rgba(0,0,0,0.55)]"
+              className="relative mx-auto w-full max-w-[860px] md:max-w-[960px] h-auto mix-blend-screen drop-shadow-[0_25px_60px_rgba(0,0,0,0.55)]"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 75% 70% at 50% 50%, #000 55%, transparent 100%)",
+                maskImage:
+                  "radial-gradient(ellipse 75% 70% at 50% 50%, #000 55%, transparent 100%)",
+              }}
             />
           </div>
+
 
           {/* Primary CTA — single button to match mockup */}
           <div className="mt-8 md:mt-10 flex justify-center">
