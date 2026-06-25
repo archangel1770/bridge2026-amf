@@ -35,6 +35,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { BridgeDivider } from "@/components/BridgeDivider";
 import { Reveal } from "@/components/Reveal";
 import { Countdown } from "@/components/Countdown";
+import { Counter } from "@/components/Counter";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { FloatingSponsorCTA } from "@/components/FloatingSponsorCTA";
 import { WaveSeparator } from "@/components/WaveSeparator";
