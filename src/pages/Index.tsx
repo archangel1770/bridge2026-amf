@@ -50,7 +50,7 @@ import { ShareButtons } from "@/components/ShareButtons";
 import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
 import bridgeLogo from "/bridge-2026-hero-logo.jpeg";
-import familyImpact from "@/assets/family-impact.jpg";
+import familyImpact from "@/assets/family-story.jpg";
 import familyStory from "@/assets/family-story.jpg";
 
 import amfLogo from "@/assets/amf-logo.png";
