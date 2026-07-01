@@ -1,12 +1,14 @@
 import { Sparkles } from "lucide-react";
+import simmonsFletcher from "@/assets/simmons-fletcher.jpg.asset.json";
+import veracity from "@/assets/veracity.png.asset.json";
 
 /** Auto-scrolling marquee of sponsor logos. Pause on hover.
  *  To add real sponsors later, push {name, logo} entries into the SPONSORS array. */
-const SPONSORS: { name: string; logo?: string }[] = [
+const SPONSORS: { name: string; logo?: string; bg?: string }[] = [
   { name: "Featured Sponsor Slot" },
-  { name: "Founding Partner" },
+  { name: "Simmons Fletcher, P.C.", logo: simmonsFletcher.url, bg: "bg-[hsl(var(--navy))]" },
   { name: "Legacy Pillar" },
-  { name: "Major Sponsor" },
+  { name: "Veracity", logo: veracity.url },
   { name: "Community Sponsor" },
   { name: "Your Company Here" },
 ];
