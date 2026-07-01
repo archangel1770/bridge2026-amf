@@ -51,7 +51,7 @@ import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
 import bridgeLogo from "/bridge-2026-hero-logo.jpeg";
 import familyImpact from "@/assets/family-impact.jpg";
-import familyStory from "@/assets/family-story.png.asset.json";
+import familyStory from "@/assets/family-story.jpg";
 
 import amfLogo from "@/assets/amf-logo.png";
 
@@ -446,7 +446,7 @@ const Index = () => {
               <div className="absolute -inset-4 md:-inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,hsl(var(--gold)/0.35),transparent_70%)] blur-2xl" aria-hidden="true" />
               <div className="relative rounded-3xl overflow-hidden border border-[hsl(var(--gold))]/30 shadow-elegant">
                 <img
-                  src={familyStory.url}
+                  src={familyStory}
                   alt="An Autism Meets Faith family — parents and two children smiling together at a community event"
                   width={1536}
                   height={1024}
