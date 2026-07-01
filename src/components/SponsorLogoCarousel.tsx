@@ -1,12 +1,14 @@
 import { Sparkles } from "lucide-react";
+import simmonsFletcher from "@/assets/simmons-fletcher.jpg.asset.json";
+import veracity from "@/assets/veracity.png.asset.json";
 
 /** Auto-scrolling marquee of sponsor logos. Pause on hover.
  *  To add real sponsors later, push {name, logo} entries into the SPONSORS array. */
-const SPONSORS: { name: string; logo?: string }[] = [
+const SPONSORS: { name: string; logo?: string; bg?: string }[] = [
   { name: "Featured Sponsor Slot" },
-  { name: "Founding Partner" },
+  { name: "Simmons Fletcher, P.C.", logo: simmonsFletcher.url, bg: "bg-[hsl(var(--navy))]" },
   { name: "Legacy Pillar" },
-  { name: "Major Sponsor" },
+  { name: "Veracity", logo: veracity.url },
   { name: "Community Sponsor" },
   { name: "Your Company Here" },
 ];
@@ -24,10 +26,10 @@ export const SponsorLogoCarousel = () => {
         {items.map((s, i) => (
           <div
             key={i}
-            className="shrink-0 h-20 md:h-24 w-48 md:w-60 rounded-2xl border border-dashed border-[hsl(var(--gold))]/40 bg-card flex items-center justify-center gap-2 px-4 text-center"
+            className={`shrink-0 h-20 md:h-24 w-48 md:w-60 rounded-2xl border border-dashed border-[hsl(var(--gold))]/40 ${s.bg ?? "bg-card"} flex items-center justify-center gap-2 px-4 text-center`}
           >
             {s.logo ? (
-              <img src={s.logo} alt={s.name} className="max-h-12 w-auto object-contain" loading="lazy" />
+              <img src={s.logo} alt={s.name} className="max-h-16 w-auto object-contain" loading="lazy" />
             ) : (
               <>
                 <Sparkles className="text-gold" size={16} />
