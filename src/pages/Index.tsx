@@ -1006,6 +1006,97 @@ const Field = ({ label, children }: { label: string; children: React.ReactNode }
   </label>
 );
 
+const CONTACT_REASONS = [
+  "General Inquiry",
+  "Sponsorship Opportunity",
+  "Speaker / Program",
+  "Attendee / Registration",
+  "Media & Press",
+  "Volunteer / Community",
+  "Other",
+];
+
+const ContactHollyForm = () => {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    organization: "",
+    email: "",
+    phone: "",
+    reason: CONTACT_REASONS[0],
+    message: "",
+  });
+
+  const update = (k: keyof typeof form) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const fullName = `${form.firstName} ${form.lastName}`.trim();
+    const subject = `Bridge 2026 Inquiry from ${fullName || "Website Visitor"}`;
+    const body =
+      `Name:\n${fullName}\n\n` +
+      `Organization:\n${form.organization}\n\n` +
+      `Email:\n${form.email}\n\n` +
+      `Phone:\n${form.phone}\n\n` +
+      `Reason for Contact:\n${form.reason}\n\n` +
+      `Message:\n${form.message}\n`;
+    const href = `mailto:holly@autismmeetsfaith.org?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid md:grid-cols-2 gap-5">
+        <Field label="First Name">
+          <Input required value={form.firstName} onChange={update("firstName")} placeholder="First name" />
+        </Field>
+        <Field label="Last Name">
+          <Input required value={form.lastName} onChange={update("lastName")} placeholder="Last name" />
+        </Field>
+        <Field label="Organization">
+          <Input value={form.organization} onChange={update("organization")} placeholder="Company / nonprofit" />
+        </Field>
+        <Field label="Email">
+          <Input required type="email" value={form.email} onChange={update("email")} placeholder="you@example.com" />
+        </Field>
+        <Field label="Phone">
+          <Input type="tel" value={form.phone} onChange={update("phone")} placeholder="(555) 555-5555" />
+        </Field>
+        <Field label="Reason for Contact">
+          <select
+            value={form.reason}
+            onChange={update("reason")}
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
+            {CONTACT_REASONS.map((r) => (
+              <option key={r} value={r}>{r}</option>
+            ))}
+          </select>
+        </Field>
+      </div>
+      <Field label="Message">
+        <Textarea
+          required
+          rows={5}
+          value={form.message}
+          onChange={update("message")}
+          placeholder="Tell us about your interest in BRIDGE 2026..."
+        />
+      </Field>
+      <p className="text-xs text-muted-foreground">
+        Clicking Send opens your email app with all details pre-filled — Holly responds to every inquiry personally.
+      </p>
+      <Button type="submit" variant="navy" size="lg" className="w-full md:w-auto hover:-translate-y-0.5">
+        <Mail /> Send to Holly
+      </Button>
+    </form>
+  );
+};
+
 const TierCard = ({ tier, className = "" }: { tier: Tier; className?: string }) => {
   const featured = tier.featured;
   return (
