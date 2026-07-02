@@ -1,43 +1,27 @@
-import { Sparkles } from "lucide-react";
-import simmonsFletcher from "@/assets/simmons-fletcher.jpg.asset.json";
-import veracity from "@/assets/veracity.png.asset.json";
+import simmonsFletcher from "@/assets/simmons-fletcher.jpg";
+import veracity from "@/assets/veracity.png";
 
-/** Auto-scrolling marquee of sponsor logos. Pause on hover.
- *  To add real sponsors later, push {name, logo} entries into the SPONSORS array. */
-const SPONSORS: { name: string; logo?: string; bg?: string }[] = [
-  { name: "Featured Sponsor Slot" },
-  { name: "Simmons Fletcher, P.C.", logo: simmonsFletcher.url, bg: "bg-[hsl(var(--navy))]" },
-  { name: "Legacy Pillar" },
-  { name: "Veracity", logo: veracity.url },
-  { name: "Community Sponsor" },
-  { name: "Your Company Here" },
+/** Responsive grid of confirmed sponsor logos. */
+const SPONSORS: { name: string; logo: string }[] = [
+  { name: "Simmons Fletcher, P.C.", logo: simmonsFletcher },
+  { name: "Veracity", logo: veracity },
 ];
 
 export const SponsorLogoCarousel = () => {
-  const items = [...SPONSORS, ...SPONSORS];
   return (
-    <div className="group relative w-full overflow-hidden py-6">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent z-10" />
-      <div
-        className="flex gap-4 md:gap-6 w-max animate-marquee group-hover:[animation-play-state:paused]"
-        style={{ animationDuration: "32s" }}
-      >
-        {items.map((s, i) => (
+    <div className="w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+        {SPONSORS.map((s) => (
           <div
-            key={i}
-            className={`shrink-0 h-20 md:h-24 w-48 md:w-60 rounded-2xl border border-dashed border-[hsl(var(--gold))]/40 ${s.bg ?? "bg-card"} flex items-center justify-center gap-2 px-4 text-center`}
+            key={s.name}
+            className="group h-32 md:h-36 rounded-2xl bg-white border border-border/70 shadow-sm flex items-center justify-center p-6 md:p-8 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-elegant"
           >
-            {s.logo ? (
-              <img src={s.logo} alt={s.name} className="max-h-16 w-auto object-contain" loading="lazy" />
-            ) : (
-              <>
-                <Sparkles className="text-gold" size={16} />
-                <span className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[hsl(var(--navy))]/70">
-                  {s.name}
-                </span>
-              </>
-            )}
+            <img
+              src={s.logo}
+              alt={`${s.name} logo`}
+              loading="lazy"
+              className="max-h-full max-w-full w-auto h-auto object-contain"
+            />
           </div>
         ))}
       </div>
