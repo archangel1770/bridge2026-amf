@@ -594,13 +594,13 @@ const Index = () => {
       <section id="featured-sponsors" className="py-16 md:py-20 bg-background border-y border-border/60">
         <div className="container-tight">
           <Reveal>
-            <div className="text-center mb-6">
-              <p className="eyebrow mb-3">Featured Sponsors</p>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-[hsl(var(--navy))]">
-                Sponsor logos <span className="text-gold">coming soon</span>
+            <div className="text-center mb-10 md:mb-12 max-w-2xl mx-auto">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-[hsl(var(--navy))]">
+                Featured <span className="text-gold">Sponsors</span>
               </h2>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Logos appear here as partners join. Want to be first? Become a sponsor today.
+              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                Organizations committed to empowering autism families through Bridge 2026.
+                Together, we're creating greater opportunities, stronger communities, and brighter futures.
               </p>
             </div>
           </Reveal>
