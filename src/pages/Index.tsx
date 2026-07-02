@@ -931,24 +931,8 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-3 rounded-3xl bg-card border border-border p-8 md:p-10 shadow-card space-y-5">
-              <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Name"><Input name="name" placeholder="Your name" /></Field>
-                <Field label="Organization"><Input name="organization" placeholder="Company / nonprofit" /></Field>
-                <Field label="Email"><Input name="email" type="email" placeholder="you@example.com" /></Field>
-                <Field label="Phone"><Input name="phone" type="tel" placeholder="(555) 555-5555" /></Field>
-              </div>
-              <Field label="Message">
-                <Textarea name="message" rows={5} placeholder="Tell us about your interest in BRIDGE 2026..." />
-              </Field>
-              <p className="text-xs text-muted-foreground">
-                Click below to open your email app with your message — Holly responds to every inquiry personally.
-              </p>
-              <Button asChild variant="navy" size="lg" className="w-full md:w-auto hover:-translate-y-0.5">
-                <a href={HOLLY_EMAIL_MAILTO}>
-                  <Mail /> Email Holly About Bridge 2026
-                </a>
-              </Button>
+            <div className="lg:col-span-3 rounded-3xl bg-card border border-border p-8 md:p-10 shadow-card">
+              <ContactHollyForm />
             </div>
           </div>
         </div>
