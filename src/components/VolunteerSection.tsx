@@ -15,8 +15,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import volunteerGroup from "@/assets/volunteer-group.png.asset.json";
-import volunteerHighfive from "@/assets/volunteer-highfive.png.asset.json";
+
+// Import images directly using Vite's static asset handling
+// This ensures they are bundled and available in production
+import volunteerGroupImg from "@/assets/volunteer-group.png?url";
+import volunteerHighfiveImg from "@/assets/volunteer-highfive.png?url";
 
 const VOLUNTEER_HUB_URL = "https://bridge2026-volunteer-hub.lovable.app";
 
@@ -48,7 +51,7 @@ export const VolunteerSection = () => (
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-gold opacity-20 blur-2xl" aria-hidden="true" />
               <div className="relative rounded-[2rem] overflow-hidden shadow-elegant border border-border/60 bg-card">
                 <img
-                  src={volunteerGroup.url}
+                  src={volunteerGroupImg}
                   alt="Bridge 2026 volunteers in Autism Meets Faith shirts smiling at the welcome entrance."
                   className="w-full h-auto object-contain"
                   loading="lazy"
@@ -125,7 +128,7 @@ export const VolunteerSection = () => (
     <section className="relative overflow-hidden">
       <div className="relative min-h-[520px] md:min-h-[620px] flex items-center justify-center">
         <img
-          src={volunteerHighfive.url}
+          src={volunteerHighfiveImg}
           alt="Bridge 2026 volunteer high-fiving a child at the welcome table."
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
