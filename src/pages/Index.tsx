@@ -41,6 +41,8 @@ import { FloatingSponsorCTA } from "@/components/FloatingSponsorCTA";
 import { WaveSeparator } from "@/components/WaveSeparator";
 import { SponsorLogoCarousel } from "@/components/SponsorLogoCarousel";
 import { FAQSection } from "@/components/FAQSection";
+import { VolunteerSection } from "@/components/VolunteerSection";
+import { GetInvolvedSection } from "@/components/GetInvolvedSection";
 import { ScheduleSection } from "@/components/ScheduleSection";
 import { ImpactSection } from "@/components/ImpactSection";
 import { MediaSection } from "@/components/MediaSection";
@@ -891,6 +893,8 @@ const Index = () => {
         </div>
       </section>
 
+      <VolunteerSection />
+
       <FAQSection />
 
       <GallerySection />
@@ -937,6 +941,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <GetInvolvedSection />
 
       {/* ============== FOOTER ============== */}
       <footer className="bg-[hsl(var(--navy-deep))] text-white pt-20 pb-10">
