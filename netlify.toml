@@ -1,0 +1,22 @@
+# Netlify Configuration
+# Automatic deployments on all main branch commits
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION = "10"
+
+# Redirect rules
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache configuration
+[cache]
+  enable = true
+  public = 604800
