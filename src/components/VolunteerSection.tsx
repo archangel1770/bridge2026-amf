@@ -18,8 +18,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import volunteerGroup from "@/assets/volunteer-group.png.asset.json";
 import volunteerHighfive from "@/assets/volunteer-highfive.png.asset.json";
 
-const VOLUNTEER_HUB_URL =
-  "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Volunteer%20Signup";
+const VOLUNTEER_HUB_URL = "https://bridge2026-volunteer-hub.lovable.app";
 
 const OPPORTUNITIES = [
   { icon: ClipboardList, title: "Registration & Welcome", body: "Greet guests and check-in attendees with warmth." },
