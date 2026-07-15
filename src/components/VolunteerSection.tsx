@@ -20,8 +20,8 @@ const VOLUNTEER_HUB_URL = "https://bridge2026-volunteer-hub.lovable.app";
 
 // Use public folder for volunteer images - Netlify serves these directly
 // Root-relative paths work in both development and production
-const VOLUNTEER_GROUP_IMG = "/volunteer-group.png";
-const VOLUNTEER_HIGHFIVE_IMG = "/volunteer-highfive.png";
+const VOLUNTEER_GROUP_IMG = "/images/volunteer/volunteer-group.png";
+const VOLUNTEER_HIGHFIVE_IMG = "/images/volunteer/volunteer-highfive.png";
 
 const OPPORTUNITIES = [
   { icon: ClipboardList, title: "Registration & Welcome", body: "Greet guests and check-in attendees with warmth." },
