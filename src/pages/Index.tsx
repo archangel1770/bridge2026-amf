@@ -51,9 +51,10 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ShareButtons } from "@/components/ShareButtons";
 import heroBridge from "@/assets/hero-bridge.jpg";
 import prospectus from "@/assets/prospectus-mockup.png";
-import bridgeLogo from "/bridge-2026-hero-logo.jpeg";
 import familyStory from "@/assets/family-story.jpg";
 
+// Hero photo — served from /public for stable production URLs (Netlify-safe).
+const HERO_PHOTO = "/images/hero/bridge-2026-hero.png";
 const familyImpact = familyStory;
 
 import amfLogo from "@/assets/amf-logo.png";
