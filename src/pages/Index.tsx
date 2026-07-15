@@ -252,16 +252,16 @@ const Index = () => {
       <SiteHeader />
       <FloatingSponsorCTA />
 
-      {/* ============== HERO ============== */}
+      {/* ============== HERO (self-contained) ============== */}
       <section
         id="home"
-        className="relative flex flex-col items-center pt-24 md:pt-28 pb-0 overflow-hidden bg-[hsl(var(--navy-deep))] text-white"
+        className="relative flex flex-col overflow-hidden bg-[hsl(var(--navy-deep))] text-white"
+        style={{ minHeight: "100svh" }}
       >
         {/* Base navy + atmospheric glows */}
         <div className="absolute inset-0" aria-hidden="true">
           <div className="absolute inset-0 bg-[hsl(var(--navy-deep))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,hsl(var(--gold)/0.18),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_60%,hsl(var(--teal)/0.10),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,hsl(var(--gold)/0.18),transparent_55%)]" />
         </div>
 
         {/* Hero photograph — emotional focal point */}
@@ -270,45 +270,73 @@ const Index = () => {
           className="absolute inset-0 will-change-transform overflow-hidden"
           aria-hidden="true"
         >
-          <picture>
-            <source media="(max-width: 767px)" srcSet={HERO_PHOTO} />
-            <img
-              src={HERO_PHOTO}
-              alt=""
-              width={1024}
-              height={1536}
-              fetchPriority="high"
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover object-[65%_center] md:object-[center_35%] opacity-80 md:opacity-85"
-            />
-          </picture>
-          {/* Navy gradient overlays — stronger near text (top + bottom), softer over people (mid) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))] via-[hsl(var(--navy-deep))]/35 to-[hsl(var(--navy-deep))]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy-deep))]/85 via-transparent to-[hsl(var(--navy-deep))]/60 md:from-[hsl(var(--navy-deep))]/70 md:to-[hsl(var(--navy-deep))]/40" />
+          <img
+            src={HERO_PHOTO}
+            alt=""
+            width={1024}
+            height={1536}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-[60%_45%] md:object-[center_35%]"
+          />
+          {/* Directional gradient: strong navy at top (behind headline), medium mid (CTA), light bottom (people) */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, hsl(var(--navy-deep)) 0%, hsl(var(--navy-deep) / 0.82) 22%, hsl(var(--navy-deep) / 0.45) 45%, hsl(var(--navy-deep) / 0.15) 70%, hsl(var(--navy-deep) / 0.35) 100%)",
+            }}
+          />
         </div>
 
-        <div className="container-tight max-w-5xl relative z-10 text-center animate-fade-up">
-          {/* Emotional headline */}
+        {/* Hero content — headline + CTA only. Uses flex to keep content top, photo visible below */}
+        <div className="container-tight max-w-5xl relative z-10 flex flex-col flex-1 pt-28 md:pt-32 pb-10 animate-fade-up">
           <Reveal>
-            <div className="pt-6 md:pt-12">
+            <div className="text-center">
               <h1 className="font-display font-semibold text-white text-balance leading-[1.08] tracking-tight text-[clamp(1.9rem,7vw,4rem)] drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]">
                 <span className="block">Building Pathways.</span>
                 <span className="block mt-1 md:mt-2">Connecting Communities.</span>
                 <span className="block mt-1 md:mt-2 text-gold italic">Transforming Lives.</span>
               </h1>
-              <div className="mx-auto mt-7 h-px w-28 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
+              <div className="mx-auto mt-6 h-px w-28 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
             </div>
           </Reveal>
 
-          {/* Primary CTA */}
-          <div className="mt-8 md:mt-10 flex justify-center">
+          <div className="mt-7 md:mt-9 flex justify-center">
             <Button asChild variant="hero" size="xl" className="shadow-gold w-full sm:w-auto max-w-full">
               <a href="#attend">Attend BRIDGE 2026 <ArrowRight /></a>
             </Button>
           </div>
+        </div>
 
-          {/* Impact stats — animated counters */}
-          <div className="mt-14 md:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pb-20 md:pb-28">
+        {/* Gold accent bottom rule */}
+        <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/70 to-transparent" />
+      </section>
+
+      {/* ============== IMPACT STATS ============== */}
+      <section
+        id="impact-stats"
+        className="relative bg-[hsl(var(--navy-deep))] text-white py-16 md:py-24"
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 0%, hsl(var(--gold) / 0.10), transparent 60%)",
+          }}
+        />
+        <div className="container-tight relative z-10">
+          <Reveal>
+            <div className="text-center mb-10 md:mb-14">
+              <p className="eyebrow !text-gold mb-3">Our Impact</p>
+              <h2 className="font-display text-3xl md:text-5xl font-semibold text-balance">
+                Real Families. <span className="text-gold italic">Real Change.</span>
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               { icon: Users, value: 700, suffix: "+", label: "Children Served" },
               { icon: Sparkles, value: 3000, suffix: "+", label: "Toys & Sensory Materials Distributed" },
@@ -329,10 +357,8 @@ const Index = () => {
             ))}
           </div>
         </div>
-
-        {/* Gold accent bottom rule */}
-        <div className="relative z-10 w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--gold))]/70 to-transparent" />
       </section>
+
 
 
       {/* ============== COUNTDOWN ============== */}
