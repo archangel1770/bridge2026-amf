@@ -75,12 +75,17 @@
 
 @layer base {
   * { @apply border-border; }
+  html, body {
+    overflow-x: clip;
+    max-width: 100vw;
+  }
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'ss01', 'cv11';
   }
+  img, video, picture, svg { max-width: 100%; height: auto; }
   h1, h2, h3, h4, .font-display {
     font-family: 'Fraunces', Georgia, serif;
     font-optical-sizing: auto;
