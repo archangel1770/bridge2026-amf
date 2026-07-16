@@ -279,33 +279,37 @@ const Index = () => {
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-[60%_45%] md:object-[center_35%]"
           />
-          {/* Directional gradient: strong navy at top (behind headline), medium mid (CTA), light bottom (people) */}
+          {/* Light directional gradient: darken only the top band for headline legibility; keep people fully visible */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, hsl(var(--navy-deep)) 0%, hsl(var(--navy-deep) / 0.82) 22%, hsl(var(--navy-deep) / 0.45) 45%, hsl(var(--navy-deep) / 0.15) 70%, hsl(var(--navy-deep) / 0.35) 100%)",
+                "linear-gradient(to bottom, hsl(var(--navy-deep) / 0.75) 0%, hsl(var(--navy-deep) / 0.45) 22%, hsl(var(--navy-deep) / 0.12) 45%, transparent 65%, hsl(var(--navy-deep) / 0.20) 100%)",
             }}
           />
         </div>
 
-        {/* Hero content — headline + CTA only. Uses flex to keep content top, photo visible below */}
-        <div className="container-tight max-w-5xl relative z-10 flex flex-col flex-1 pt-28 md:pt-32 pb-10 animate-fade-up">
+        {/* Hero content — headline + CTA only, positioned in the upper third */}
+        <div className="container-tight max-w-5xl relative z-10 flex flex-col flex-1 pt-24 md:pt-28 pb-10 animate-fade-up">
           <Reveal>
             <div className="text-center">
-              <h1 className="font-display font-semibold text-white text-balance leading-[1.08] tracking-tight text-[clamp(1.9rem,7vw,4rem)] drop-shadow-[0_4px_30px_rgba(0,0,0,0.85)]">
-                <span className="block">Building Pathways.</span>
-                <span className="block mt-1 md:mt-2">Connecting Communities.</span>
-                <span className="block mt-1 md:mt-2 text-gold italic">Transforming Lives.</span>
+              <h1 className="font-display text-white text-balance uppercase font-medium tracking-[0.22em] md:tracking-[0.28em] leading-[1.6] text-[clamp(0.85rem,2.2vw,1.35rem)] drop-shadow-[0_2px_18px_rgba(0,0,0,0.85)]">
+                <span className="block">A Premier Conference</span>
+                <span className="block">For Families Impacted</span>
+                <span className="block">By Autism</span>
               </h1>
-              <div className="mx-auto mt-6 h-px w-28 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
+              <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
             </div>
           </Reveal>
 
           <div className="mt-7 md:mt-9 flex justify-center">
-            <Button asChild variant="hero" size="xl" className="shadow-gold w-full sm:w-auto max-w-full">
-              <a href="#attend">Attend BRIDGE 2026 <ArrowRight /></a>
-            </Button>
+            <a
+              href="#attend"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-white bg-transparent px-8 py-3.5 text-sm md:text-base font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:border-[hsl(var(--gold))] hover:text-[hsl(var(--gold))] hover:shadow-[0_10px_40px_-10px_hsl(var(--gold)/0.6)] hover:-translate-y-0.5 active:border-[hsl(var(--gold))] active:text-[hsl(var(--gold))]"
+            >
+              Attend Bridge2026
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} />
+            </a>
           </div>
         </div>
 
