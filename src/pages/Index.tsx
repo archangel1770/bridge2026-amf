@@ -333,7 +333,7 @@ const Index = () => {
         <div className="container-tight relative z-10">
           <Reveal>
             <div className="text-center mb-10 md:mb-14">
-              <p className="eyebrow !text-gold mb-3">Our Impact</p>
+              <p className="eyebrow !text-gold mb-3">OUR IMPACT</p>
               <h2 className="font-display text-3xl md:text-5xl font-semibold text-balance">
                 Real Families. <span className="text-gold italic">Real Change.</span>
               </h2>
