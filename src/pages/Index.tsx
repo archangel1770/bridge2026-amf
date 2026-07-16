@@ -54,7 +54,7 @@ import prospectus from "@/assets/prospectus-mockup.png";
 import familyStory from "@/assets/family-story.jpg";
 
 // Hero photo — served from /public for stable production URLs (Netlify-safe).
-const HERO_PHOTO = "/images/hero/bridge-2026-hero.png";
+const HERO_PHOTO = "/images/hero/bridge-2026-hero.jpg";
 const familyImpact = familyStory;
 
 import amfLogo from "@/assets/amf-logo.png";
