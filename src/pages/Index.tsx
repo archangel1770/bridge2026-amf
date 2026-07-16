@@ -277,14 +277,14 @@ const Index = () => {
             height={1536}
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-[60%_45%] md:object-[center_35%]"
+            className="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-[center_25%]"
           />
-          {/* Light directional gradient: darken only the top band for headline legibility; keep people fully visible */}
+          {/* Navy gradient — subtle up top, deepens toward bottom for headline + CTA legibility */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, hsl(var(--navy-deep) / 0.55) 0%, hsl(var(--navy-deep) / 0.25) 30%, hsl(var(--navy-deep) / 0.10) 50%, hsl(var(--navy-deep) / 0.55) 82%, hsl(var(--navy-deep) / 0.85) 100%)",
+                "linear-gradient(to bottom, rgba(4,20,42,0) 45%, rgba(4,20,42,0.45) 65%, rgba(4,20,42,0.92) 86%, rgba(4,20,42,1) 100%)",
             }}
           />
         </div>
