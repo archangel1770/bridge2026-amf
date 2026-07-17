@@ -274,16 +274,16 @@ const Index = () => {
           className="absolute inset-0 will-change-transform overflow-hidden"
           aria-hidden="true"
         >
-          {/* Mobile: cropped background showing only the photograph region */}
+          {/* Mobile + tablet: cropped background showing only the photograph region */}
           <div
-            className="md:hidden absolute inset-0 bg-no-repeat"
+            className="lg:hidden absolute inset-0 bg-no-repeat"
             style={{
               backgroundImage: `url(${HERO_PHOTO})`,
               backgroundSize: "auto 155%",
               backgroundPosition: "50% 22%",
             }}
           />
-          {/* Desktop: original framing preserved */}
+          {/* Desktop (lg+): original framing preserved */}
           <img
             src={HERO_PHOTO}
             alt=""
@@ -291,7 +291,7 @@ const Index = () => {
             height={1536}
             fetchPriority="high"
             decoding="async"
-            className="hidden md:block absolute inset-0 w-full h-full object-cover object-[center_25%]"
+            className="hidden lg:block absolute inset-0 w-full h-full object-cover object-[center_25%]"
           />
           {/* Navy gradient — subtle up top, deepens toward bottom for headline + CTA legibility */}
           <div
