@@ -264,12 +264,26 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,hsl(var(--gold)/0.18),transparent_55%)]" />
         </div>
 
-        {/* Hero photograph — emotional focal point */}
+        {/* Hero photograph — emotional focal point.
+            NOTE: The source asset is a full pre-composed mockup with BRIDGE.2026 wordmark,
+            headline text, and CTA button baked in. On mobile we crop to the family/volunteer
+            region only so those baked UI elements don't ghost behind the real DOM header,
+            headline, and CTA. Desktop keeps the original object-cover framing. */}
         <div
           ref={heroImgRef}
           className="absolute inset-0 will-change-transform overflow-hidden"
           aria-hidden="true"
         >
+          {/* Mobile: cropped background showing only the photograph region */}
+          <div
+            className="md:hidden absolute inset-0 bg-no-repeat"
+            style={{
+              backgroundImage: `url(${HERO_PHOTO})`,
+              backgroundSize: "auto 155%",
+              backgroundPosition: "50% 22%",
+            }}
+          />
+          {/* Desktop: original framing preserved */}
           <img
             src={HERO_PHOTO}
             alt=""
@@ -277,14 +291,14 @@ const Index = () => {
             height={1536}
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-[center_top] md:object-[center_25%]"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover object-[center_25%]"
           />
           {/* Navy gradient — subtle up top, deepens toward bottom for headline + CTA legibility */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(4,20,42,0) 45%, rgba(4,20,42,0.45) 65%, rgba(4,20,42,0.92) 86%, rgba(4,20,42,1) 100%)",
+                "linear-gradient(to bottom, rgba(4,20,42,0) 45%, rgba(4,20,42,0.55) 68%, rgba(4,20,42,0.95) 84%, rgba(4,20,42,1) 100%)",
             }}
           />
         </div>
