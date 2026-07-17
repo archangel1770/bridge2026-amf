@@ -290,25 +290,27 @@ const Index = () => {
         </div>
 
         {/* Hero content — tagline + CTA anchored to the bottom, both always in mobile viewport */}
-        <div className="container-tight max-w-5xl relative z-10 flex flex-col flex-1 justify-end pt-20 pb-8 md:pb-14 animate-fade-up">
-          <Reveal>
-            <div className="text-center">
-              <h1 className="font-display text-white text-balance uppercase font-medium tracking-[0.22em] md:tracking-[0.28em] leading-[1.6] text-[clamp(0.85rem,2.2vw,1.35rem)] drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]">
-                <span className="block">A Premier Conference</span>
-                <span className="block">For Families Impacted</span>
-                <span className="block">By Autism</span>
-              </h1>
-              <div className="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
-            </div>
-          </Reveal>
+        <div className="container-tight max-w-5xl relative z-10 flex flex-col flex-1 justify-end pt-20 pb-8 md:pb-14">
+          <div className="text-center" style={{ textShadow: "none", filter: "none", WebkitTextStroke: 0 }}>
+            <h1
+              className="font-display text-white text-balance uppercase font-medium tracking-[0.22em] md:tracking-[0.28em] leading-[1.6] text-[clamp(0.85rem,2.2vw,1.35rem)]"
+              style={{ textShadow: "none", filter: "none" }}
+            >
+              <span className="block">A Premier Conference</span>
+              <span className="block">For Families Impacted</span>
+              <span className="block">By Autism</span>
+            </h1>
+            <div className="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
+          </div>
 
           <div className="mt-6 md:mt-8 flex justify-center">
             <a
               href="#attend"
-              className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-[hsl(var(--gold))] bg-transparent px-7 md:px-8 py-3 md:py-3.5 text-sm md:text-base font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:bg-[hsl(var(--gold))]/10 hover:text-[hsl(var(--gold))] hover:shadow-[0_10px_40px_-10px_hsl(var(--gold)/0.7)] hover:-translate-y-0.5"
+              style={{ boxShadow: "none", filter: "none", textShadow: "none" }}
+              className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-[hsl(var(--gold))] bg-transparent px-7 md:px-8 py-3 md:py-3.5 text-sm md:text-base font-semibold uppercase tracking-[0.16em] text-white transition-colors duration-300 md:hover:bg-[hsl(var(--gold))]/10 md:hover:text-[hsl(var(--gold))]"
             >
               Attend Bridge 2026
-              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} />
+              <ArrowRight className="transition-transform duration-300 md:group-hover:translate-x-1" size={18} />
             </a>
           </div>
         </div>
