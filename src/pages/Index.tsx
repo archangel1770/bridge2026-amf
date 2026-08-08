@@ -279,8 +279,8 @@ const Index = () => {
             className="lg:hidden absolute inset-0 bg-no-repeat"
             style={{
               backgroundImage: `url(${HERO_PHOTO})`,
-              backgroundSize: "auto 155%",
-              backgroundPosition: "50% 22%",
+              backgroundSize: "auto 162%",
+              backgroundPosition: "42% 24%",
             }}
           />
           {/* Desktop (lg+): original framing preserved */}
