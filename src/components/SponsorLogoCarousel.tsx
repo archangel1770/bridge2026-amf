@@ -1,10 +1,13 @@
 import simmonsFletcher from "@/assets/simmons-fletcher.jpg";
 import veracity from "@/assets/veracity.png";
+import restoreAba from "@/assets/restore-aba-speech-therapy.jpg";
 
 /** Responsive grid of confirmed sponsor logos. */
-const SPONSORS: { name: string; logo: string }[] = [
+const SPONSORS: { name: string; logo: string; boxed?: boolean }[] = [
   { name: "Simmons Fletcher, P.C.", logo: simmonsFletcher },
   { name: "Veracity", logo: veracity },
+  // Logo artwork ships with its own dark background, so it is framed as a contained tile.
+  { name: "Restore ABA & Speech Therapy", logo: restoreAba, boxed: true },
 ];
 
 export const SponsorLogoCarousel = () => {
@@ -20,7 +23,11 @@ export const SponsorLogoCarousel = () => {
               src={s.logo}
               alt={`${s.name} logo`}
               loading="lazy"
-              className="max-h-full max-w-full w-auto h-auto object-contain"
+              className={
+                s.boxed
+                  ? "max-h-full max-w-full w-auto h-auto object-contain rounded-xl"
+                  : "max-h-full max-w-full w-auto h-auto object-contain"
+              }
             />
           </div>
         ))}
