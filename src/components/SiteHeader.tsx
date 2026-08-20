@@ -17,8 +17,6 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
-const ZEFFY =
-  "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
 
 
 export const SiteHeader = () => {
