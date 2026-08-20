@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import amfLogo from "@/assets/amf-logo.png";
+import { ZEFFY_TICKETS_URL } from "@/lib/links";
 
 const links = [
   { href: "#home", label: "Home" },
+  { href: "#attend", label: "Attend" },
   { href: "#about", label: "About" },
   { href: "#sponsors", label: "Sponsors" },
   { href: "#volunteer", label: "Volunteer" },
@@ -15,8 +17,7 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
-const ZEFFY =
-  "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
+
 
 export const SiteHeader = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -70,8 +71,8 @@ export const SiteHeader = () => {
 
         <div className="hidden lg:flex items-center gap-3">
           <Button asChild variant="hero" size="sm">
-            <a href={ZEFFY} target="_blank" rel="noopener noreferrer">
-              Become a Sponsor
+            <a href={ZEFFY_TICKETS_URL} target="_blank" rel="noopener noreferrer">
+              Get Priority Tickets
             </a>
           </Button>
         </div>
@@ -101,12 +102,12 @@ export const SiteHeader = () => {
             ))}
             <Button asChild variant="hero" className="mt-4">
               <a
-                href={ZEFFY}
+                href={ZEFFY_TICKETS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
               >
-                Become a Sponsor
+                Get Priority Tickets
               </a>
             </Button>
           </nav>

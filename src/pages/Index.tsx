@@ -58,14 +58,14 @@ const HERO_PHOTO = "/images/hero/bridge-2026-hero.jpg";
 const familyImpact = familyStory;
 
 import amfLogo from "@/assets/amf-logo.png";
+import { ZEFFY_TICKETS_URL } from "@/lib/links";
 
 // === Live links ===
 const PROSPECTUS_URL =
   "https://drive.google.com/file/d/1g87HTBpGw_cU0qJ_Yq6vhyRj2DLbHYOm/view?usp=sharing";
 const ZEFFY_SPONSOR_URL =
   "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
-const PRIORITY_ACCESS_URL =
-  "https://www.zeffy.com/en-US/newsletter-form/priority-access-2026-autism-meets-faith-summit";
+
 const TITLE_UNDERWRITER_MAILTO =
   "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Title%20Underwriter%20Inquiry";
 const HOLLY_EMAIL_MAILTO = "mailto:holly@autismmeetsfaith.org";
@@ -317,16 +317,29 @@ const Index = () => {
             <div className="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
           </div>
 
-          <div className="mt-6 md:mt-8 flex justify-center">
+          <p className="mt-4 text-center text-[0.65rem] md:text-xs font-semibold uppercase tracking-[0.22em] text-[hsl(var(--gold))]">
+            Priority Registration Now Open
+          </p>
+
+          <div className="mt-5 md:mt-6 flex flex-col items-center gap-3">
             <a
-              href="#attend"
+              href={ZEFFY_TICKETS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ boxShadow: "none", filter: "none", textShadow: "none" }}
               className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-[hsl(var(--gold))] bg-transparent px-7 md:px-8 py-3 md:py-3.5 text-sm md:text-base font-semibold uppercase tracking-[0.16em] text-white transition-colors duration-300 md:hover:bg-[hsl(var(--gold))]/10 md:hover:text-[hsl(var(--gold))]"
             >
-              Attend Bridge 2026
+              Get Priority Tickets
               <ArrowRight className="transition-transform duration-300 md:group-hover:translate-x-1" size={18} />
             </a>
+            <a
+              href="#attend"
+              className="text-xs md:text-sm text-white/75 underline underline-offset-4 hover:text-[hsl(var(--gold))] transition-colors"
+            >
+              Learn more about Bridge 2026
+            </a>
           </div>
+
         </div>
 
         {/* Gold accent bottom rule */}
@@ -841,26 +854,32 @@ const Index = () => {
           <SectionHeading
             eyebrow="Registration"
             title={<>Attend <span className="text-gold">BRIDGE 2026</span></>}
-            intro="Registration will open soon for families, professionals, providers, advocates, and community leaders."
+            intro="Registration is now open for families, professionals, providers, advocates, and community leaders."
           />
+
+          <p className="-mt-6 mb-10 text-sm font-semibold uppercase tracking-[0.18em] text-[hsl(var(--navy))]">
+            Priority tickets are now on sale · November 7, 2026
+          </p>
 
           <div className="rounded-3xl bg-card border border-border p-10 md:p-14 shadow-card">
             <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--gold))]/15 text-[hsl(var(--navy))] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6">
-              <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold))]" /> Registration Coming Soon
+              <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold))]" /> Priority Tickets Available
             </div>
             <h3 className="font-display text-2xl md:text-3xl text-[hsl(var(--navy))] text-balance">
-              Be the first to know when tickets go live.
+              Secure your place at Bridge 2026.
             </h3>
             <p className="mt-4 text-muted-foreground max-w-md mx-auto">
-              Join Priority Access and we'll send registration details directly to your inbox first.
+              Join families, professionals, providers, advocates, and community leaders for a day of
+              connection, resources, learning, and community.
             </p>
             <div className="mt-8">
               <Button asChild variant="hero" size="xl" className="hover:-translate-y-0.5">
-                <a href={PRIORITY_ACCESS_URL} target="_blank" rel="noopener noreferrer">
-                  Join Priority Access <ArrowRight />
+                <a href={ZEFFY_TICKETS_URL} target="_blank" rel="noopener noreferrer">
+                  Get Priority Tickets <ArrowRight />
                 </a>
               </Button>
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">Secure registration powered by Zeffy</p>
           </div>
         </div>
       </section>
@@ -875,6 +894,7 @@ const Index = () => {
           <SectionHeading
             eyebrow="Venue"
             title={<>Hyatt Regency <span className="text-gold">Baytown-Houston</span></>}
+
             intro="A professional, accessible setting for connection, learning, and community impact."
           />
 

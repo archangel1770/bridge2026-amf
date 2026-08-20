@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-
-const ZEFFY =
-  "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
+import { ZEFFY_TICKETS_URL } from "@/lib/links";
 
 export const FloatingSponsorCTA = () => {
   const [show, setShow] = useState(false);
@@ -15,15 +13,16 @@ export const FloatingSponsorCTA = () => {
 
   return (
     <a
-      href={ZEFFY}
+      href={ZEFFY_TICKETS_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Become a Sponsor of Bridge 2026"
+      aria-label="Get priority tickets for Bridge 2026"
       className={`lg:hidden fixed bottom-4 inset-x-4 z-40 flex items-center justify-center gap-2 h-12 rounded-full bg-gradient-gold text-[hsl(var(--navy))] font-semibold shadow-gold transition-all duration-300 ${
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
       }`}
+      style={{ marginBottom: "env(safe-area-inset-bottom)" }}
     >
-      Become a Sponsor <ArrowRight size={16} />
+      Get Priority Tickets <ArrowRight size={16} />
     </a>
   );
 };
