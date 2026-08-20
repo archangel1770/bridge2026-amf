@@ -854,26 +854,32 @@ const Index = () => {
           <SectionHeading
             eyebrow="Registration"
             title={<>Attend <span className="text-gold">BRIDGE 2026</span></>}
-            intro="Registration will open soon for families, professionals, providers, advocates, and community leaders."
+            intro="Registration is now open for families, professionals, providers, advocates, and community leaders."
           />
+
+          <p className="-mt-6 mb-10 text-sm font-semibold uppercase tracking-[0.18em] text-[hsl(var(--navy))]">
+            Priority tickets are now on sale · November 7, 2026
+          </p>
 
           <div className="rounded-3xl bg-card border border-border p-10 md:p-14 shadow-card">
             <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--gold))]/15 text-[hsl(var(--navy))] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6">
-              <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold))]" /> Registration Coming Soon
+              <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold))]" /> Priority Tickets Available
             </div>
             <h3 className="font-display text-2xl md:text-3xl text-[hsl(var(--navy))] text-balance">
-              Be the first to know when tickets go live.
+              Secure your place at Bridge 2026.
             </h3>
             <p className="mt-4 text-muted-foreground max-w-md mx-auto">
-              Join Priority Access and we'll send registration details directly to your inbox first.
+              Join families, professionals, providers, advocates, and community leaders for a day of
+              connection, resources, learning, and community.
             </p>
             <div className="mt-8">
               <Button asChild variant="hero" size="xl" className="hover:-translate-y-0.5">
-                <a href={PRIORITY_ACCESS_URL} target="_blank" rel="noopener noreferrer">
-                  Join Priority Access <ArrowRight />
+                <a href={ZEFFY_TICKETS_URL} target="_blank" rel="noopener noreferrer">
+                  Get Priority Tickets <ArrowRight />
                 </a>
               </Button>
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">Secure registration powered by Zeffy</p>
           </div>
         </div>
       </section>
@@ -888,6 +894,7 @@ const Index = () => {
           <SectionHeading
             eyebrow="Venue"
             title={<>Hyatt Regency <span className="text-gold">Baytown-Houston</span></>}
+
             intro="A professional, accessible setting for connection, learning, and community impact."
           />
 
