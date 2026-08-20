@@ -58,14 +58,14 @@ const HERO_PHOTO = "/images/hero/bridge-2026-hero.jpg";
 const familyImpact = familyStory;
 
 import amfLogo from "@/assets/amf-logo.png";
+import { ZEFFY_TICKETS_URL } from "@/lib/links";
 
 // === Live links ===
 const PROSPECTUS_URL =
   "https://drive.google.com/file/d/1g87HTBpGw_cU0qJ_Yq6vhyRj2DLbHYOm/view?usp=sharing";
 const ZEFFY_SPONSOR_URL =
   "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
-const PRIORITY_ACCESS_URL =
-  "https://www.zeffy.com/en-US/newsletter-form/priority-access-2026-autism-meets-faith-summit";
+
 const TITLE_UNDERWRITER_MAILTO =
   "mailto:holly@autismmeetsfaith.org?subject=Bridge%202026%20Title%20Underwriter%20Inquiry";
 const HOLLY_EMAIL_MAILTO = "mailto:holly@autismmeetsfaith.org";
