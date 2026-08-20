@@ -317,16 +317,29 @@ const Index = () => {
             <div className="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-[hsl(var(--gold))] to-transparent" />
           </div>
 
-          <div className="mt-6 md:mt-8 flex justify-center">
+          <p className="mt-4 text-center text-[0.65rem] md:text-xs font-semibold uppercase tracking-[0.22em] text-[hsl(var(--gold))]">
+            Priority Registration Now Open
+          </p>
+
+          <div className="mt-5 md:mt-6 flex flex-col items-center gap-3">
             <a
-              href="#attend"
+              href={ZEFFY_TICKETS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ boxShadow: "none", filter: "none", textShadow: "none" }}
               className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-[hsl(var(--gold))] bg-transparent px-7 md:px-8 py-3 md:py-3.5 text-sm md:text-base font-semibold uppercase tracking-[0.16em] text-white transition-colors duration-300 md:hover:bg-[hsl(var(--gold))]/10 md:hover:text-[hsl(var(--gold))]"
             >
-              Attend Bridge 2026
+              Get Priority Tickets
               <ArrowRight className="transition-transform duration-300 md:group-hover:translate-x-1" size={18} />
             </a>
+            <a
+              href="#attend"
+              className="text-xs md:text-sm text-white/75 underline underline-offset-4 hover:text-[hsl(var(--gold))] transition-colors"
+            >
+              Learn more about Bridge 2026
+            </a>
           </div>
+
         </div>
 
         {/* Gold accent bottom rule */}
