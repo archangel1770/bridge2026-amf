@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 const FAQS = [
   { q: "Is parking available at the venue?", a: "Yes — the Hyatt Regency Baytown-Houston offers free on-site parking for all attendees." },
   { q: "Is the venue accessible?", a: "The conference facility is fully ADA accessible, including elevators, restrooms, and seating accommodations. Please reach out if you need additional support." },
-  { q: "How do I get tickets?", a: "Registration opens soon. Join the Priority Access list to be notified the moment tickets go live." },
+  { q: "How do I get tickets?", a: "Registration is open. Choose Get Priority Tickets anywhere on this site to register securely through Zeffy." },
   { q: "How can my company sponsor?", a: "Choose a sponsorship tier above and complete payment securely through Zeffy, or contact Holly directly for custom partnership agreements." },
   { q: "What is the refund policy?", a: "Tickets are non-refundable but fully transferable. Please contact Holly to transfer your registration to another attendee." },
   { q: "Are there hotel accommodations nearby?", a: "Yes — the Hyatt Regency Baytown-Houston and several nearby hotels offer accommodations. A discounted room block will be announced closer to the event." },

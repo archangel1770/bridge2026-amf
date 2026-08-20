@@ -5,6 +5,7 @@ import amfLogo from "@/assets/amf-logo.png";
 
 const links = [
   { href: "#home", label: "Home" },
+  { href: "#attend", label: "Attend" },
   { href: "#about", label: "About" },
   { href: "#sponsors", label: "Sponsors" },
   { href: "#volunteer", label: "Volunteer" },
@@ -17,6 +18,7 @@ const links = [
 
 const ZEFFY =
   "https://www.zeffy.com/en-US/donation-form/the-bridge-2026-the-autism-meets-faith-regional-resource-summit";
+const TICKETS = "https://www.zeffy.com/en-US/ticketing/bridge-2026-autism-meets-faith-regional-resource-summit";
 
 export const SiteHeader = () => {
   const [scrolled, setScrolled] = useState(false);
