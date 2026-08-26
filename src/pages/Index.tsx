@@ -407,7 +407,7 @@ const Index = () => {
                 Countdown to <span className="text-gold">Summit Day</span>
               </h2>
               <p className="mt-3 text-white/70 text-sm md:text-base tracking-wide">
-                November 7, 2026 · Hyatt Regency Baytown-Houston
+                November 7, 2026 · Hyatt Regency Baytown Houston
               </p>
             </div>
           </Reveal>
@@ -901,10 +901,10 @@ const Index = () => {
           <div className="grid lg:grid-cols-5 gap-8 items-stretch">
             <div className="lg:col-span-2 rounded-3xl bg-[hsl(var(--navy))] text-white p-8 md:p-10 shadow-elegant">
               <MapPin className="text-gold mb-5" size={28} />
-              <h3 className="font-display text-2xl font-semibold mb-2">Hyatt Regency Baytown-Houston</h3>
+              <h3 className="font-display text-2xl font-semibold mb-2">Hyatt Regency Baytown Houston</h3>
               <p className="text-white/80 leading-relaxed">
-                1000 Heritage Place<br />
-                Baytown, TX 77521
+                100 Convention Center Way<br />
+                Baytown, TX 77520
               </p>
               <div className="my-6 h-px bg-white/15" />
               <ul className="space-y-3 text-sm text-white/85">
@@ -914,7 +914,7 @@ const Index = () => {
               </ul>
               <Button asChild variant="outlineGold" className="mt-8">
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=Hyatt+Regency+Baytown-Houston"
+                  href="https://www.google.com/maps/dir/?api=1&destination=Hyatt+Regency+Baytown+Houston,+100+Convention+Center+Way,+Baytown,+TX+77520"
                   target="_blank"
                   rel="noopener"
                 >
@@ -925,8 +925,8 @@ const Index = () => {
 
             <div className="lg:col-span-3 rounded-3xl overflow-hidden border border-border shadow-card min-h-[360px] bg-muted">
               <iframe
-                title="Hyatt Regency Baytown-Houston map"
-                src="https://www.google.com/maps?q=Hyatt+Regency+Baytown-Houston,+1000+Heritage+Place,+Baytown,+TX+77521&output=embed"
+                title="Hyatt Regency Baytown Houston map"
+                src="https://www.google.com/maps?q=Hyatt+Regency+Baytown+Houston,+100+Convention+Center+Way,+Baytown,+TX+77520&output=embed"
                 loading="lazy"
                 className="w-full h-full min-h-[360px] border-0"
               />
@@ -1039,7 +1039,7 @@ const Index = () => {
 
           <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
             <p>© 2026 Autism Meets Faith. All rights reserved.</p>
-            <p>Hyatt Regency Baytown-Houston · November 7, 2026</p>
+            <p>Hyatt Regency Baytown Houston · November 7, 2026</p>
           </div>
         </div>
       </footer>
