@@ -1,7 +1,7 @@
 import simmonsFletcher from "@/assets/simmons-fletcher.jpg";
 import veracity from "@/assets/veracity.png";
 import restoreAba from "@/assets/restore-aba-speech-therapy.jpg";
-import sproutBloomAsset from "@/assets/sprout-bloom-aba-therapy.jpeg.asset.json";
+import sproutBloom from "@/assets/sprout-bloom-aba-therapy.jpg";
 
 /** Responsive grid of confirmed sponsor logos. */
 const SPONSORS: { name: string; logo: string; boxed?: boolean }[] = [
@@ -9,7 +9,7 @@ const SPONSORS: { name: string; logo: string; boxed?: boolean }[] = [
   { name: "Veracity", logo: veracity },
   // Logo artwork ships with its own dark background, so it is framed as a contained tile.
   { name: "Restore ABA & Speech Therapy", logo: restoreAba, boxed: true },
-  { name: "Sprout & Bloom ABA Therapy", logo: sproutBloomAsset.url },
+  { name: "Sprout & Bloom ABA Therapy", logo: sproutBloom },
 ];
 
 export const SponsorLogoCarousel = () => {
