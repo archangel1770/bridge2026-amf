@@ -893,7 +893,7 @@ const Index = () => {
         <div className="container-tight">
           <SectionHeading
             eyebrow="Venue"
-            title={<>Hyatt Regency <span className="text-gold">Baytown-Houston</span></>}
+            title={<>Hyatt Regency <span className="text-gold">Baytown Houston</span></>}
 
             intro="A professional, accessible setting for connection, learning, and community impact."
           />
