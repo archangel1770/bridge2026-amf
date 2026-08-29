@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -16,11 +16,18 @@ declare global {
   }
 }
 
-/** Sends a GA4 page_view on every client-side route change so each path is tracked distinctly. */
+/** Sends a GA4 page_view on client-side route changes. The initial pageview is
+ *  already sent automatically by the gtag('config') call in index.html, so the
+ *  first render is skipped to avoid double-counting the landing page. */
 const RouteAnalytics = () => {
   const location = useLocation();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     if (typeof window.gtag === "function") {
       window.gtag("event", "page_view", {
         page_path: location.pathname + location.search,
